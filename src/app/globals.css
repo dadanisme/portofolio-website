@@ -5,21 +5,20 @@
 .glassmorph {
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.01);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5.3px);
   -webkit-backdrop-filter: blur(5.3px);
 }
 
 .box-x {
-  @apply px-8 lg:px-24 xl:px-36;
+  @apply px-8 lg:px-16 xl:px-24;
 }
 
 .box-y {
-  @apply py-8 lg:py-24 xl:py-36;
+  @apply py-8 lg:py-16 xl:py-24;
 }
 
 .sticky-top {
-  @apply lg:sticky top-8 lg:top-24 xl:top-36 lg:h-full;
+  @apply lg:sticky top-8 lg:top-16 xl:top-24 lg:h-full;
 }
 
 .h1 {
