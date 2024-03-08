@@ -21,14 +21,8 @@ export default function RootLayout({ children, modal }: Props) {
     <html lang="en">
       <body className={inter.className}>
         <Loader />
-        <main className="relative z-10">
-          {children}
-          {modal}
-        </main>
-
-        <section className="fixed inset-0 z-0">
-          <Background />
-        </section>
+        {children}
+        {modal}
       </body>
     </html>
   );

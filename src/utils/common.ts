@@ -3,3 +3,7 @@ interface ParamsProps {
     [key: string]: string;
   };
 }
+
+interface ChildrenProps {
+  children: React.ReactNode;
+}
