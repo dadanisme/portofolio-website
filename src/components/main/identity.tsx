@@ -47,7 +47,7 @@ export default function Identity() {
         </a>
 
         <a
-          href="#"
+          href="/MuhammadRamdan_CV.pdf"
           target="_blank"
           rel="noreferrer"
           className="btn btn-secondary ml-4 glassmorph btn-outline"
