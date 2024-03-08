@@ -5,7 +5,7 @@ import { HTMLMotionProps, Variants, motion } from "framer-motion";
 
 type Props = HTMLMotionProps<"div"> & { delay?: number; once?: boolean };
 
-export default function ZoomWhenVisible(props: Props) {
+export default function Zooming(props: Props) {
   const variants: Variants = {
     visible: {
       opacity: 1,

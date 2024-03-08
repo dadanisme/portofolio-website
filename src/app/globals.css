@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.glass-card {
-  @apply border border-primary;
+.glassmorph {
   /* From https://css.glass */
-  background: rgba(48, 54, 112, 0.16);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.01);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5.3px);
   -webkit-backdrop-filter: blur(5.3px);
