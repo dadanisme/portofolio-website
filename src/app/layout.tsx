@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 interface Props {
   children: React.ReactNode;
-  modal?: React.ReactNode;
+  modal: React.ReactNode;
 }
 
 export default function RootLayout({ children, modal }: Props) {
