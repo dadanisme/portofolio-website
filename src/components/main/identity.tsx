@@ -11,8 +11,8 @@ import Link from "next/link";
 export default function Identity() {
   return (
     <section className="w-full lg:w-2/5 sticky-top">
-      <h1 className="h2 font-extrabold text-center lg:text-left relative lg:-left-1">
-        <Rainbow className="lg:pl-1">Muhammad Ramdan</Rainbow>
+      <h1 className="h2 font-extrabold text-center lg:text-left relative">
+        <Rainbow>Muhammad Ramdan</Rainbow>
       </h1>
 
       <h2 className="h5 font-semibold text-center lg:text-left">

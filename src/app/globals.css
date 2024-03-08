@@ -48,3 +48,31 @@
 .p {
   @apply text-sm lg:text-base;
 }
+
+.highlight-info {
+  @apply border-info/25 hover:border-info hover:bg-info/10 shadow-info/25 hover:shadow-info;
+}
+
+.highlight-neutral-content {
+  @apply border-neutral-content/25 hover:border-neutral-content hover:bg-neutral-content/10 shadow-neutral-content/25 hover:shadow-neutral-content;
+}
+
+.highlight-secondary {
+  @apply border-secondary/25 hover:border-secondary hover:bg-secondary/10 shadow-secondary/25 hover:shadow-secondary;
+}
+
+.highlight-primary {
+  @apply border-primary/25 hover:border-primary hover:bg-primary/10 shadow-primary/25 hover:shadow-primary;
+}
+
+.highlight-success {
+  @apply border-success/25 hover:border-success hover:bg-success/10 shadow-success/25 hover:shadow-success;
+}
+
+.highlight-error {
+  @apply border-error/25 hover:border-error hover:bg-error/10 shadow-error/25 hover:shadow-error;
+}
+
+.highlight-warning {
+  @apply border-warning/25 hover:border-warning hover:bg-warning/10 shadow-warning/25 hover:shadow-warning;
+}

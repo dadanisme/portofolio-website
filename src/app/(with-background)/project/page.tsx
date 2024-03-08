@@ -21,7 +21,7 @@ export default async function Project() {
       </div>
 
       <div className="flex items-center justify-center mt-20">
-        <form action={createProject} method="post">
+        <form action={createProject}>
           <SubmitButton className="btn btn-error btn-outline glassmorph" />
         </form>
       </div>
