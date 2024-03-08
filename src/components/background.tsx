@@ -125,6 +125,19 @@ const Background = () => {
               blink: false,
               consent: false,
               opacity: 1,
+              color: {
+                value: [
+                  "#ffffff",
+                  "#00CDB7",
+                  "#7480FF",
+                  "#FF52D9",
+                  "#FF5861",
+                  "#00A96E",
+                  "#FFBE00",
+                  "#00B5FF",
+                  "#2A323C",
+                ],
+              },
             },
           },
           push: {

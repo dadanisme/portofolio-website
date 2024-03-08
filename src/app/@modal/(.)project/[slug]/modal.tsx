@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Modal } from "react-daisyui";
+import clsx from "clsx";
 
 interface Props {
   children: React.ReactNode;
@@ -24,7 +25,10 @@ export default function ProjectModal({ children }: Props) {
     <Modal.Legacy
       open={open}
       onClickBackdrop={closeModal}
-      className="w-[95%] max-w-screen-2xl h-[90%] max-h-screen-2xl"
+      className={clsx(
+        "w-[95%] max-w-screen-2xl h-[90%] max-h-screen-2xl p-0",
+        "glass-card"
+      )}
     >
       <Modal.Body>{children}</Modal.Body>
     </Modal.Legacy>
