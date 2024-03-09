@@ -18,7 +18,7 @@ export default function YouTube() {
           className="btn btn-error  btn-sm"
           target="_blank"
         >
-          Connect
+          Subscribe
         </a>
       </header>
 
