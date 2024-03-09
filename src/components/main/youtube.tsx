@@ -6,7 +6,7 @@ export default function YouTube() {
     <div className="px-6 py-4">
       <header className="flex items-center justify-between">
         <Image
-          src="/YouTube.svg"
+          src="/youtube.svg"
           alt="YouTube"
           width={100}
           height={100}
