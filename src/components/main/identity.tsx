@@ -10,16 +10,16 @@ import Link from "next/link";
 
 export default function Identity() {
   return (
-    <section className="w-full lg:w-2/5 sticky-top">
-      <h1 className="h2 font-extrabold text-center lg:text-left relative">
+    <section className="w-full xl:w-2/5 sticky-top">
+      <h1 className="h2 font-extrabold text-center xl:text-left relative">
         <Rainbow>Muhammad Ramdan</Rainbow>
       </h1>
 
-      <h2 className="h5 font-semibold text-center lg:text-left">
+      <h2 className="h5 font-semibold text-center xl:text-left">
         Software Engineer
       </h2>
 
-      <p className="p text-center lg:text-left mt-4">
+      <p className="p text-center xl:text-left mt-4">
         Skilled in
         <span className="text-warning font-bold"> web</span>,
         <span className="text-secondary font-bold"> cloud</span>,
@@ -30,19 +30,19 @@ export default function Identity() {
 
       <Link
         href="/about"
-        className="mt-4 block text-center lg:text-left text-primary font-bold hover:underline"
+        className="mt-4 block text-center xl:text-left text-primary font-bold hover:underline"
       >
         More about me <MdOutlineArrowRightAlt className="inline" />
       </Link>
 
-      <div className="flex justify-center lg:justify-start mt-8">
+      <div className="flex justify-center xl:justify-start mt-8">
         <a
           href="https://wa.me/6285889838142?text=Hello%20Ramdan!"
           target="_blank"
           rel="noreferrer"
           className="btn btn-primary glassmorph btn-outline"
         >
-          <MdWhatsapp className="text-lg" />
+          <MdWhatsapp className="text-xl" />
           Contact
         </a>
 
@@ -52,12 +52,12 @@ export default function Identity() {
           rel="noreferrer"
           className="btn btn-secondary ml-4 glassmorph btn-outline"
         >
-          <MdOutlineDownload className="text-lg" />
+          <MdOutlineDownload className="text-xl" />
           Resume
         </a>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         <Footer />
       </div>
     </section>

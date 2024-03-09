@@ -18,7 +18,7 @@
 }
 
 .sticky-top {
-  @apply lg:sticky top-8 lg:top-16 xl:top-24 lg:h-full;
+  @apply xl:sticky top-8 lg:top-16 xl:top-24 xl:h-full;
 }
 
 .h1 {

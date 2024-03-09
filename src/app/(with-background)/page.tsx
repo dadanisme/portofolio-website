@@ -5,7 +5,7 @@ import Footer from "@/components/main/footer";
 export default function Home() {
   return (
     <main className="box-x box-y">
-      <div className="flex flex-col lg:flex-row w-full gap-8 2xl:gap-16">
+      <div className="flex flex-col xl:flex-row w-full gap-8 2xl:gap-16">
         <Identity />
         <Highlight />
       </div>
