@@ -7,7 +7,7 @@ import YouTube from "./youtube";
 
 export default function Highlight() {
   return (
-    <section className="w-full xl:w-3/5 grid grid-cols-2 sm:grid-cols-4 auto-rows-[10rem] gap-8">
+    <section className="w-full xl:w-3/5 grid grid-cols-2 sm:grid-cols-4 auto-rows-[10rem] gap-4 lg:gap-8">
       <Item className="highlight-info col-span-2 overflow-y-hidden">
         <LinkedIn />
       </Item>

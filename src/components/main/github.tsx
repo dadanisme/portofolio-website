@@ -3,7 +3,7 @@ import React from "react";
 
 export default function GitHub() {
   return (
-    <div className="px-6 py-4">
+    <div className="px-4 sm:px-6 py-4">
       <header className="flex items-center justify-between">
         <Image
           src="/github.svg"
