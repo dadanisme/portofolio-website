@@ -4,6 +4,7 @@ import LinkedIn from "./linkedin";
 import GitHub from "./github";
 import Instagram from "./instagram";
 import YouTube from "./youtube";
+import TechStack from "./tech";
 
 export default function Highlight() {
   return (
@@ -26,7 +27,9 @@ export default function Highlight() {
       <Item className="p-4 highlight-warning col-span-2 row-span-2">
         Skripsi
       </Item>
-      <Item className="p-4 highlight-success col-span-2">Tech Stack</Item>
+      <Item className="highlight-success col-span-2">
+        <TechStack />
+      </Item>
     </section>
   );
 }

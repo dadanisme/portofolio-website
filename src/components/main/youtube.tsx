@@ -28,9 +28,8 @@ export default function YouTube() {
       <h3 className="text-sm">Muhammad Ramdan</h3>
 
       <p className="mt-2 line-clamp-2 whitespace-pre-wrap text-xs">
-        A channel where I share my knowledge and experience in software
-        engineering, cloud computing, machine learning, and mobile development.
-        I also share my journey in learning new things.
+        A channel where I share some of my knowledge and experience in software
+        engineering, piano, and other things.
       </p>
     </div>
   );
