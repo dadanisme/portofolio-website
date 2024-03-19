@@ -1,6 +1,6 @@
-import Image from "next/image";
 import React from "react";
 import TechSlider from "./tech-carousel";
+import ArrowLink from "../common/arrow-link";
 
 export default function TechStack() {
   return (
@@ -9,6 +9,9 @@ export default function TechStack() {
         <h2 className="p font-semibold text-black dark:text-white">
           Tech Stack
         </h2>
+        <ArrowLink className="font-semibold" href="/project">
+          See my projects
+        </ArrowLink>
       </header>
 
       <div className="mt-6">

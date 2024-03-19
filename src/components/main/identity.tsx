@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 import Footer from "./footer";
 import Link from "next/link";
+import ArrowLink from "../common/arrow-link";
 
 export default function Identity() {
   return (
@@ -28,12 +29,9 @@ export default function Identity() {
         Always eager to learn new things.
       </p>
 
-      <Link
-        href="/about"
-        className="mt-4 block text-center xl:text-left text-primary font-bold hover:underline"
-      >
-        More about me <MdOutlineArrowRightAlt className="inline" />
-      </Link>
+      <ArrowLink className="mt-4" href="/about">
+        More about me
+      </ArrowLink>
 
       <div className="flex justify-center xl:justify-start mt-8">
         <a
