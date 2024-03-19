@@ -31,7 +31,7 @@ export default function ComingSoon() {
           <div className="mt-4">
             <p className="text-sm text-primary">Email sent, thank you!</p>
 
-            <ArrowLink reverse href="/">
+            <ArrowLink centered reverse href="/">
               Back to home
             </ArrowLink>
           </div>
