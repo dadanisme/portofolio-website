@@ -1,5 +1,5 @@
-import React from "react";
+import { redirect } from "next/navigation";
 
 export default function About() {
-  return <div>About</div>;
+  return redirect("/coming-soon");
 }
