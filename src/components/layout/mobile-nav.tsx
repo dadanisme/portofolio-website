@@ -78,9 +78,15 @@ function Menu({ open, onClose }: MenuProps) {
         </p>
       </div>
       <div className="mt-8 flex flex-col items-center gap-2">
-        <NavLink href="/about">About</NavLink>
-        <NavLink href="/projects">Projects</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
+        <NavLink onClose={onClose} href="/about">
+          About
+        </NavLink>
+        <NavLink onClose={onClose} href="/projects">
+          Projects
+        </NavLink>
+        <NavLink onClose={onClose} href="/contact">
+          Contact
+        </NavLink>
       </div>
 
       <div className="absolute bottom-4 left-0 text-center w-full">
@@ -93,9 +99,10 @@ function Menu({ open, onClose }: MenuProps) {
 interface LinkProps {
   href: string;
   children: React.ReactNode;
+  onClose: () => void;
 }
 
-function NavLink({ href, children }: LinkProps) {
+function NavLink({ href, children, onClose }: LinkProps) {
   const pathname = usePathname();
   return (
     <Link
@@ -104,6 +111,7 @@ function NavLink({ href, children }: LinkProps) {
         "px-4 py-2 font-semibold",
         pathname.includes(href) ? "text-secondary" : "text-neutral-content"
       )}
+      onClick={onClose}
     >
       {children}
     </Link>
