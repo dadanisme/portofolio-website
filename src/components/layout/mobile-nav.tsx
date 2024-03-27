@@ -21,7 +21,7 @@ export default function MobileNav() {
   };
 
   return (
-    <div className="fixed top-0 right-0 wide-box-x h-20 z-[51] flex items-center justify-center">
+    <div className="xl:hidden fixed top-0 right-0 wide-box-x h-20 z-[51] flex items-center justify-center">
       <MdOutlineMenu
         onClick={onOpen}
         className="text-4xl text-secondary cursor-pointer"
