@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function About() {
+export default function Projects() {
   return redirect("/coming-soon");
 }
