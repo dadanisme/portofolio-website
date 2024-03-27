@@ -17,6 +17,14 @@
   @apply py-8 lg:py-16 xl:py-24;
 }
 
+.wide-box-x {
+  @apply px-8 lg:px-24 xl:px-36 900p:px-48 1080p:px-60;
+}
+
+.wide-box-y {
+  @apply py-8 lg:py-24 xl:py-36;
+}
+
 .sticky-top {
   @apply xl:sticky top-8 lg:top-16 xl:top-24 xl:h-full;
 }

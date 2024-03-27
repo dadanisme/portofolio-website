@@ -8,6 +8,26 @@ import {
 import Footer from "./footer";
 import Link from "next/link";
 import ArrowLink from "../common/arrow-link";
+import Image from "next/image";
+
+const socials: SocialProps[] = [
+  {
+    href: "https://www.linkedin.com/in/dadanisme/",
+    image: "/linkedin.svg",
+  },
+  {
+    href: "https://github.com/dadanisme",
+    image: "/github.svg",
+  },
+  {
+    href: "https://www.instagram.com/dadanis.me",
+    image: "/instagram.svg",
+  },
+  {
+    href: "https://www.youtube.com/channel/UC0T7x4I2c7oAn0N4oZGVXdQ",
+    image: "/youtube.svg",
+  },
+];
 
 export default function Identity() {
   return (
@@ -55,9 +75,30 @@ export default function Identity() {
         </a>
       </div>
 
-      <div className="hidden xl:block">
-        <Footer />
+      <div className="flex justify-center xl:justify-start mt-8 xl:-space-x-10 xl:relative -left-8">
+        {socials.map((social, index) => (
+          <Social key={index} {...social} />
+        ))}
       </div>
     </section>
+  );
+}
+
+interface SocialProps {
+  href: string;
+  image: string;
+}
+
+function Social({ href, image }: SocialProps) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer">
+      <Image
+        src={image}
+        alt={href}
+        width={100}
+        height={100}
+        className="h-8 object-contain"
+      />
+    </a>
   );
 }
