@@ -39,28 +39,28 @@ export default function Navbar() {
   }, []);
 
   return (
-    <DSNavbar
-      className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        "box-x flex items-center justify-between border-b-[0.5px] h-20",
-        isTransparent
-          ? "bg-opacity-0 border-b-transparent"
-          : "border-b-neutral-content/20 glassmorph"
-      )}
-    >
-      <Link href="/">
-        <MdChevronLeft className="text-4xl text-secondary" />
-      </Link>
+    <>
+      <DSNavbar
+        className={clsx(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "box-x flex items-center justify-between border-b-[0.5px] h-20",
+          isTransparent
+            ? "bg-opacity-0 border-b-transparent"
+            : "border-b-neutral-content/20 glassmorph"
+        )}
+      >
+        <Link href="/">
+          <MdChevronLeft className="text-4xl text-secondary" />
+        </Link>
 
-      <div className={clsx("hidden xl:block", "flex")}>
-        <NavLink href="/about">About</NavLink>
-        <NavLink href="/projects">Projects</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
-      </div>
-      <div className="xl:hidden">
-        <MobileNav />
-      </div>
-    </DSNavbar>
+        <div className={clsx("hidden xl:block", "flex")}>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/projects">Projects</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
+        </div>
+      </DSNavbar>
+      <MobileNav />
+    </>
   );
 }
 

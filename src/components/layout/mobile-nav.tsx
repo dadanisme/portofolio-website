@@ -21,7 +21,7 @@ export default function MobileNav() {
   };
 
   return (
-    <div>
+    <div className="fixed top-0 right-0 wide-box-x h-20 z-[51] flex items-center justify-center">
       <MdOutlineMenu
         onClick={onOpen}
         className="text-4xl text-secondary cursor-pointer"
@@ -55,10 +55,10 @@ function Menu({ open, onClose }: MenuProps) {
   return (
     <div
       className={clsx(
-        "fixed left-0 w-full h-96 bg-main-background",
+        "fixed left-0 bottom-0 w-full h-96 bg-main-background",
         "transition-all duration-300",
         "border-t-[0.5px] border-neutral p-4",
-        open ? "bottom-0" : "-bottom-96 opacity-0 pointer-events-none"
+        open ? "translate-y-0" : "translate-y-full"
       )}
     >
       <MdClose
@@ -84,7 +84,7 @@ function Menu({ open, onClose }: MenuProps) {
       </div>
 
       <div className="absolute bottom-4 left-0 text-center w-full">
-        <p className="p text-neutral-content">© 2021 Muhammad Ramdan</p>
+        <p className="p text-neutral-content">&copy; 2024 Muhammad Ramdan</p>
       </div>
     </div>
   );
