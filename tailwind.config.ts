@@ -28,6 +28,7 @@ const config: Config = {
         "app-light": "#EBF3E8",
         "app-lightSemiTransparent": "rgba(235, 243, 232, 0.5)",
         "app-dark": "#1B4242",
+        "main-background": "#1D232A",
       },
     },
   },

@@ -5,7 +5,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Navbar as DSNavbar } from "react-daisyui";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { MdChevronLeft } from "react-icons/md";
+import { MdChevronLeft, MdOutlineMenu } from "react-icons/md";
+import MobileNav from "./mobile-nav";
 
 export default function Navbar() {
   const [transparent, setTransparent] = useState(true);
@@ -56,7 +57,9 @@ export default function Navbar() {
         <NavLink href="/projects">Projects</NavLink>
         <NavLink href="/contact">Contact</NavLink>
       </div>
-      <div className="xl:hidden">mobile</div>
+      <div className="xl:hidden">
+        <MobileNav />
+      </div>
     </DSNavbar>
   );
 }
@@ -74,7 +77,7 @@ function NavLink({ href, children }: LinkProps) {
       href={href}
       className={clsx(
         "px-4 py-2",
-        pathname === href ? "text-secondary" : "text-neutral-content"
+        pathname.includes(href) ? "text-secondary" : "text-neutral-content"
       )}
     >
       {children}
