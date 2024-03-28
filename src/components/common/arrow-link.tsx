@@ -14,7 +14,7 @@ export default function ArrowLink({ reverse, centered, ...props }: Props) {
     <Link
       {...props}
       className={clsx(
-        "text-center xl:text-left text-primary font-bold hover:underline",
+        "text-center xl:text-left text-secondary font-bold hover:underline",
         "flex items-center justify-center xl:justify-start gap-2",
         reverse && "flex-row-reverse",
         centered && "justify-center xl:justify-center",

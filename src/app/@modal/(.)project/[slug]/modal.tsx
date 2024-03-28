@@ -27,7 +27,7 @@ export default function ProjectModal({ children }: Props) {
       onClickBackdrop={closeModal}
       className={clsx(
         "w-[95%] max-w-screen-2xl h-[90%] max-h-screen-2xl p-0",
-        "glassmorph border border-primary"
+        "glassmorph border border-secondary"
       )}
     >
       <Modal.Body>{children}</Modal.Body>
