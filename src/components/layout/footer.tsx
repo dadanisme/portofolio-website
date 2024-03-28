@@ -5,8 +5,16 @@ import { NavLink } from "./navbar";
 
 const getCommitCount = () => {
   const commitCount = require("git-commit-count");
+  const fs = require("fs");
 
-  return (commitCount("dadanisme/portofolio-website") / 100).toFixed(2);
+  let count: string = ((commitCount() + 1) / 100).toFixed(2);
+  if (process.env.NODE_ENV === "development") {
+    fs.writeFileSync("public/commit-count.txt", count);
+  } else {
+    count = fs.readFileSync("public/commit-count.txt", "utf-8");
+  }
+
+  return count;
 };
 
 export default async function Footer() {
