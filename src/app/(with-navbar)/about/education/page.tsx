@@ -41,7 +41,7 @@ export default function Education() {
           </h4>
           <span className="text-sm">Science Study</span>
 
-          <p className="mt-2">
+          <p className="mt-2 p">
             Gained the best national exam score in the school, perfect score in
             Mathematics. Active in Perisai Diri and Ansamble Music Club.
             Acceleration program for 2 years.
@@ -53,7 +53,7 @@ export default function Education() {
             <B>SMP SMART Ekselensia Indonesia</B>
           </h4>
 
-          <p className="mt-2">Active in Tahfidz Qur'an</p>
+          <p className="mt-2 p">Active in Tahfidz Qur'an</p>
         </Line>
         <Line disableEnd logo="/kemdikbud.png">
           <time className="font-mono italic text-secondary">2008-2014</time>
