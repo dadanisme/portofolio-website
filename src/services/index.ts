@@ -1,37 +1,140 @@
-import * as fs from "fs";
-import { faker } from "@faker-js/faker";
-import { revalidatePath } from "next/cache";
 import { Resend } from "resend";
+import { getLangColor, slugify } from "@/utils/common";
 
 const resend = new Resend("re_9f7doiva_KDxmhcemgf2muR8zUccitWT7");
 
+interface Project {
+  name: string;
+  description: string;
+  image?: string;
+  repo?: string;
+  slug: string;
+  customLink?: string;
+  private?: boolean;
+  lang?: Record<
+    string,
+    {
+      size: number;
+      color: string;
+    }
+  >;
+}
+
+const projects: Omit<Project, "slug">[] = [
+  {
+    name: "Stockifi Admin Panel",
+    description: "Stockifi internal admin panel for managing users and data.",
+    repo: "stocklio/admin-panel",
+    private: true,
+  },
+  {
+    name: "AyaSeek AI",
+    description:
+      "Al-Quran search Android application powered by AI. Utilizing NLP and ML to search for verses in the Quran, built with React Native. Soon to be released on Google Play Store. Stay tuned!",
+    repo: "dadanisme/al-quran",
+    customLink: "/ayaseek-ai",
+  },
+  {
+    name: "AGAVI Institute",
+    description: "A website for an educational institution.",
+    repo: "Agavi-Institute/agavi-institute-client",
+    private: true,
+  },
+  {
+    name: "Portofolio Website",
+    description: "This website you're currently visiting.",
+    repo: "dadanisme/portofolio-website",
+  },
+  {
+    name: "ACR Asia Landing Page",
+    description:
+      "A landing page for ACR Asia. A company that provides services & products for the insulated panel.",
+    repo: "dadanisme/acr-asia-new",
+    private: true,
+  },
+  {
+    name: "AGAVI Landing Page",
+    description:
+      "A landing page for AGAVI. A consulting company in Food Safety, Quality, and Regulatory Compliance.",
+    repo: "dadanisme/agavi-landing-page",
+    private: true,
+  },
+  {
+    name: "Face Compare App",
+    description: "A face comparison application using face-api.js.",
+    repo: "dadanisme/face-compare-app",
+  },
+  {
+    name: "Job Classification",
+    repo: "dadanisme/job-classification",
+    description:
+      "A web application for classifying job test into recommended job categories with machine learning.",
+  },
+  {
+    name: "Job Classification Server",
+    description:
+      "A server for Job Classification web application. Built with Flask & TensorFlow.",
+    repo: "dadanisme/job-classification-server",
+  },
+  {
+    name: "Sign Detection",
+    description:
+      "A web application for detecting hand signs using MediaPipe gesture recognition.",
+    repo: "dadanisme/sign-detection-next",
+  },
+  {
+    name: "Vite Adventure",
+    description: "A simple story game built with Vite.",
+    repo: "dadanisme/vite-adventure",
+  },
+];
+
 export async function getProjects() {
-  // read from public folder
-  const projects = fs.readFileSync("public/projects.json", "utf-8");
-  return JSON.parse(projects).reverse();
-}
+  const data: Project[] = await Promise.all(
+    projects.map(async (project) => {
+      const slug = slugify(project.name);
 
-export async function createProject() {
-  "use server";
-  const title = faker.lorem.words(7);
-  const project = {
-    // random slug
-    slug: slugify(title),
-    title,
-  };
+      if (project.private || !project.repo) {
+        return { ...project, slug };
+      }
 
-  // append to public folder
-  const projects = await getProjects();
-  projects.push(project);
+      const langRes = await fetch(
+        `https://api.github.com/repos/${project.repo}/languages`
+      );
+      const data = await langRes.json();
 
-  fs.writeFileSync("public/projects.json", JSON.stringify(projects));
+      if (data.documentation_url) {
+        return { ...project, slug };
+      }
 
-  revalidatePath("/project");
-  return project;
-}
+      const totalSize = Object.values(data).reduce(
+        (acc: number, curr) => acc + (curr as number),
+        0
+      );
 
-export function slugify(title: string) {
-  return title.toLowerCase().replace(/ /g, "-");
+      const lang = Object.entries(data).reduce<
+        Record<string, { size: number; color: string }>
+      >((acc, curr) => {
+        const [lang, size] = curr;
+
+        const percentage = ((size as number) / totalSize) * 100;
+
+        acc[lang] = {
+          size: percentage,
+          color: getLangColor(lang),
+        };
+        return acc;
+      }, {});
+
+      return {
+        ...project,
+        slug,
+        lang,
+      };
+    })
+  );
+
+  return data;
 }
 
 const encourageWords = [
