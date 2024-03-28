@@ -7,7 +7,7 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 
 export default function Header() {
   return (
-    <div className="mt-8">
+    <div className="mt-8 border-b border-b-neutral-content/20">
       <div className="flex flex-col xl:flex-row items-center gap-8">
         <Image
           src="/ramdan.png"

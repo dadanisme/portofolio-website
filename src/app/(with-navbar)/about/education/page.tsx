@@ -1,41 +1,61 @@
+import { B } from "@/components/common/elements";
+import { Line, Timeline } from "@/components/common/timeline";
+import Title from "@/components/common/title";
 import React from "react";
 
 export default function Education() {
   return (
-    <div>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-      praesentium facilis voluptatum deserunt dolor dolores ea, incidunt sequi
-      numquam aliquid dolore quos neque, aliquam impedit culpa cumque, nemo
-      delectus veritatis explicabo. Nihil quidem id odit nulla sapiente
-      assumenda iste reprehenderit neque ea consequatur. Expedita saepe
-      perferendis omnis accusantium dolorum pariatur soluta debitis! Nostrum
-      veritatis inventore et quis tenetur. Architecto asperiores inventore ut
-      tenetur quam velit voluptate eum, quas quasi. Maiores tempore est aliquid,
-      quasi exercitationem, necessitatibus aspernatur eligendi eveniet delectus
-      officiis ex, doloribus cum harum accusantium maxime. Nobis, ea eum itaque
-      ipsa, maxime odit perferendis quas tenetur deserunt praesentium placeat
-      obcaecati ipsum expedita reprehenderit libero corrupti nemo repudiandae
-      odio iure! Hic iure odit voluptatem ab quod numquam ullam voluptate facere
-      facilis blanditiis ipsam cumque officia id enim asperiores, laboriosam
-      alias doloribus molestias rerum nesciunt est accusamus iste obcaecati
-      omnis. Quidem eius numquam deserunt est ad facilis, neque excepturi
-      tenetur hic expedita ratione magni repellendus molestias cupiditate non
-      nam quaerat repellat aliquam consequatur tempore a? Numquam velit
-      consectetur tempore facilis saepe aperiam odit dolore, repellat voluptas
-      qui, culpa quidem, soluta voluptate fugit cum laboriosam nobis. Dolore
-      asperiores delectus aut neque ea, hic expedita qui rerum quidem nam eum
-      iusto quod iure corporis quis beatae? Quaerat, reprehenderit. Temporibus
-      asperiores mollitia, consequuntur numquam qui eos minus laudantium iure
-      ea, ipsum impedit fuga? Necessitatibus, perferendis quo delectus ipsa
-      aspernatur exercitationem minima aperiam! Culpa, obcaecati? Dicta quod ut,
-      repudiandae at rerum molestiae quia, recusandae perferendis vel repellat
-      blanditiis alias quibusdam, atque ratione obcaecati explicabo labore
-      mollitia? Accusamus, blanditiis. Incidunt voluptatibus aliquid odit dicta
-      laboriosam, qui commodi fugiat esse illum accusamus. Ipsa ratione
-      assumenda, esse libero similique totam omnis nulla quidem aperiam facilis
-      laborum ullam veritatis maxime tenetur quo in nemo rerum labore,
-      voluptatibus eligendi. Eius corrupti alias amet quasi atque tempora fugiat
-      perferendis? Laboriosam, commodi!
-    </div>
+    <article>
+      <p className="mb-8 p text-justify xl:text-left">
+        Majoring in Electrical Engineering, I have a strong foundation in
+        mathematics, physics, and telecommunication. I have also learned
+        programming languages such as C, C++, and Python. I am also familiar
+        with software such as MATLAB, AutoCAD, and Proteus.
+      </p>
+      <Title className="text-secondary">Formal Education_</Title>
+      <Timeline>
+        <Line disableStart logo="/upi.svg">
+          <time className="font-mono italic text-secondary">2019-2024</time>
+          <h4 className="text-lg text-secondary">
+            <B>Universitas Pendidikan Indonesia</B>
+          </h4>
+          <span className="text-sm">
+            Bachelor of Electrical Engineering (S.T.)
+          </span>
+
+          <p className="mt-2 p">
+            GPA: 3.51/4.00. Active in activities and societies such as UKM
+            Perisai Diri UPI, IEEE Student Branch UPI
+          </p>
+        </Line>
+        <Line logo="/smart.png">
+          <time className="font-mono italic text-secondary">2017-2019</time>
+          <h4 className="text-lg text-secondary">
+            <B>SMA SMART Ekselensia Indonesia</B>
+          </h4>
+          <span className="text-sm">Science Study</span>
+
+          <p className="mt-2">
+            Gained the best national exam score in the school, perfect score in
+            Mathematics. Active in Perisai Diri and Ansamble Music Club.
+            Acceleration program for 2 years.
+          </p>
+        </Line>
+        <Line logo="/smart.png">
+          <time className="font-mono italic text-secondary">2014-2017</time>
+          <h4 className="text-lg text-secondary">
+            <B>SMP SMART Ekselensia Indonesia</B>
+          </h4>
+
+          <p className="mt-2">Active in Tahfidz Qur'an</p>
+        </Line>
+        <Line disableEnd logo="/kemdikbud.png">
+          <time className="font-mono italic text-secondary">2008-2014</time>
+          <h4 className="text-lg text-secondary">
+            <B>SDN Sindagjaya 01</B>
+          </h4>
+        </Line>
+      </Timeline>
+    </article>
   );
 }
