@@ -58,7 +58,7 @@ export default function Education() {
         <Line disableEnd logo="/kemdikbud.png">
           <time className="font-mono italic text-secondary">2008-2014</time>
           <h4 className="text-lg text-secondary">
-            <B>SDN Sindagjaya 01</B>
+            <B>SDN Sindangjaya 01</B>
           </h4>
         </Line>
       </Timeline>
