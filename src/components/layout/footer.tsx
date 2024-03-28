@@ -35,9 +35,9 @@ export default async function Footer() {
         </h3>
 
         <div>
-          <NavLink href="/about">About</NavLink>
+          {/* <NavLink href="/about">About</NavLink>
           <NavLink href="/projects">Projects</NavLink>
-          <NavLink href="/contact">Contact</NavLink>{" "}
+          <NavLink href="/contact">Contact</NavLink> */}
         </div>
       </footer>
       <div className="bg-secondary py-1 box-x">
