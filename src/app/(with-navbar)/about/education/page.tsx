@@ -1,7 +1,13 @@
 import { B } from "@/components/common/elements";
 import { Line, Timeline } from "@/components/common/timeline";
 import Title from "@/components/common/title";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Education | Muhammad Ramdan",
+  description: "My formal & non-formal education background.",
+};
 
 export default function Education() {
   return (
