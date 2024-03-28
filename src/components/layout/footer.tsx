@@ -6,7 +6,7 @@ import { NavLink } from "./navbar";
 const getCommitCount = () => {
   const commitCount = require("git-commit-count");
 
-  return (commitCount() / 100).toFixed(2);
+  return (commitCount("dadanisme/portofolio-website") / 100).toFixed(2);
 };
 
 export default async function Footer() {
