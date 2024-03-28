@@ -7,7 +7,7 @@ export default function Current() {
     <article className="mt-8">
       <Title className="text-secondary">Current Occupations_</Title>
 
-      <ul className="list-disc list-inside mt-2">
+      <ul className="list-disc ml-3 mt-2">
         <li className="p">
           <B>React Developer</B> -{" "}
           <A href="https://stockifi.io/" target="_blank" rel="noreferrer">

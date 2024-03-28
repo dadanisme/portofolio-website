@@ -6,7 +6,7 @@ export default function Layout({ children }: ChildrenProps) {
     <div className="wide-box-x">
       <Header />
 
-      <main className="mt-8 pb-4">{children}</main>
+      <main className="mt-8">{children}</main>
     </div>
   );
 }

@@ -69,14 +69,14 @@ interface LinkProps {
   children: React.ReactNode;
 }
 
-function NavLink({ href, children }: LinkProps) {
+export function NavLink({ href, children }: LinkProps) {
   const pathname = usePathname();
 
   return (
     <Link
       href={href}
       className={clsx(
-        "px-4 py-2",
+        "px-4 py-2 p",
         pathname.includes(href) ? "text-secondary" : "text-neutral-content"
       )}
     >

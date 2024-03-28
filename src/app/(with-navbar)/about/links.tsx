@@ -103,7 +103,7 @@ export default function Links() {
       <Title className="text-secondary">Quick Links_</Title>
 
       <h3 className="h5 mt-4 text-secondary font-bold">Socials</h3>
-      <ul className="list-disc list-inside mt-2">
+      <ul className="list-disc ml-3 mt-2">
         {socials.map((link) => (
           <li className="p" key={link.href}>
             <A href={link.href} target="_blank" rel="noreferrer">
@@ -114,7 +114,7 @@ export default function Links() {
       </ul>
 
       <h3 className="h5 mt-4 text-secondary font-bold">Certificates</h3>
-      <ul className="list-disc list-inside mt-2">
+      <ul className="list-disc ml-3 mt-2">
         {certificates.map((link) => (
           <li className="p" key={link.href}>
             <A href={link.href} target="_blank" rel="noreferrer">
