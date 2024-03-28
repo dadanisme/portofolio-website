@@ -3,6 +3,12 @@ import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 import GithubButton from "./button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Muhammad Ramdan",
+  description: "Here are some of the projects I've worked on.",
+};
 
 export default async function Projects() {
   const projects = await getProjects();
