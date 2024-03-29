@@ -9,8 +9,10 @@ interface Project {
   image?: string;
   repo?: string;
   slug: string;
+  externalLink?: string;
   customLink?: string;
   private?: boolean;
+  year: number;
   lang?: Record<
     string,
     {
@@ -26,6 +28,8 @@ const projects: Omit<Project, "slug">[] = [
     description: "Stockifi internal admin panel for managing users and data.",
     repo: "stocklio/admin-panel",
     private: true,
+    externalLink: "https://www.stockifi.io",
+    year: 2024,
   },
   {
     name: "AyaSeek AI",
@@ -33,17 +37,15 @@ const projects: Omit<Project, "slug">[] = [
       "Al-Quran search Android application powered by AI. Utilizing NLP and ML to search for verses in the Quran, built with React Native. Soon to be released on Google Play Store. Stay tuned!",
     repo: "dadanisme/al-quran",
     customLink: "/ayaseek-ai",
+    year: 2024,
   },
   {
     name: "AGAVI Institute",
-    description: "A website for an educational institution.",
+    description: "Learning management system for AGAVI Institute.",
     repo: "Agavi-Institute/agavi-institute-client",
     private: true,
-  },
-  {
-    name: "Portofolio Website",
-    description: "This website you're currently visiting.",
-    repo: "dadanisme/portofolio-website",
+    externalLink: "https://institute.agavi.id",
+    year: 2023,
   },
   {
     name: "ACR Asia Landing Page",
@@ -51,6 +53,46 @@ const projects: Omit<Project, "slug">[] = [
       "A landing page for ACR Asia. A company that provides services & products for the insulated panel.",
     repo: "dadanisme/acr-asia-new",
     private: true,
+    externalLink: "https://www.acr-asia.com",
+    year: 2023,
+  },
+  {
+    name: "SiJuara",
+    description:
+      "Job seeker platform belonging to Kemnaker. Optimized for speed, reliability, and user experience.",
+    repo: "bragapm/sima-juara",
+    externalLink: "https://sijuara.jabarprov.go.id",
+    private: true,
+    year: 2022,
+  },
+  {
+    name: "Dashboard Singset BPKAD",
+    description:
+      "Dashboard for management of land assets and building assets developed for BPKAD West Java Province.",
+    year: 2022,
+    externalLink: "http://singset-dev.braga.co.id",
+  },
+  {
+    name: "Dashboard DSDA Jabar",
+    description:
+      "A water resources mapping application for DSDA. Built with React & Mapbox",
+    repo: "bragapm/DSDA_Jabar",
+    private: true,
+    year: 2022,
+    externalLink: "https://dsda.braga.co.id",
+  },
+  {
+    name: "Land System BIG",
+    description:
+      "Application developed for geospatial information agencies that function to analyze geospatial data",
+    year: 2022,
+    repo: "bragapm/land-system-big-pm",
+  },
+  {
+    name: "Portofolio Website",
+    description: "This website you're currently visiting.",
+    repo: "dadanisme/portofolio-website",
+    year: 2024,
   },
   {
     name: "AGAVI Landing Page",
@@ -58,34 +100,58 @@ const projects: Omit<Project, "slug">[] = [
       "A landing page for AGAVI. A consulting company in Food Safety, Quality, and Regulatory Compliance.",
     repo: "dadanisme/agavi-landing-page",
     private: true,
+    externalLink: "https://refresh.agavi.id",
+    year: 2024,
   },
   {
     name: "Face Compare App",
     description: "A face comparison application using face-api.js.",
     repo: "dadanisme/face-compare-app",
+    externalLink: "https://penjemputan-siswa.vercel.app",
+    year: 2023,
   },
   {
     name: "Job Classification",
     repo: "dadanisme/job-classification",
     description:
       "A web application for classifying job test into recommended job categories with machine learning.",
+    year: 2023,
   },
   {
     name: "Job Classification Server",
     description:
       "A server for Job Classification web application. Built with Flask & TensorFlow.",
     repo: "dadanisme/job-classification-server",
+    year: 2023,
   },
   {
     name: "Sign Detection",
     description:
       "A web application for detecting hand signs using MediaPipe gesture recognition.",
     repo: "dadanisme/sign-detection-next",
+    externalLink: "https://sign-detection.vercel.app",
+    year: 2023,
   },
   {
     name: "Vite Adventure",
     description: "A simple story game built with Vite.",
     repo: "dadanisme/vite-adventure",
+    externalLink: "https://vite-adventure.vercel.app",
+    year: 2022,
+  },
+  {
+    name: "Al-Quran Recognition",
+    description:
+      "Starter prototype of AyaSeek AI. A web application for recognizing Al-Quran verses using GCP.",
+    repo: "dadanisme/alquran-recognition",
+    year: 2022,
+  },
+  {
+    name: "Al-Quran Recognition Server",
+    description:
+      "A server for Al-Quran Recognition web application. Built with Flask & TensorFlow.",
+    repo: "dadanisme/alquran-recognition-server",
+    year: 2022,
   },
 ];
 
@@ -134,7 +200,7 @@ export async function getProjects() {
     })
   );
 
-  return data;
+  return data.sort((a, b) => b.year - a.year);
 }
 
 const encourageWords = [

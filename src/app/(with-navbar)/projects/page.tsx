@@ -4,6 +4,8 @@ import Link from "next/link";
 import React from "react";
 import GithubButton from "./button";
 import { Metadata } from "next";
+import { A } from "@/components/common/elements";
+import { IoMdGlobe } from "react-icons/io";
 
 export const metadata: Metadata = {
   title: "Projects | Muhammad Ramdan",
@@ -34,15 +36,31 @@ export default async function Projects() {
             )}
           >
             <Link href={project.customLink ?? `/project/${project.slug}`}>
+              <time className="text-sm text-gray-200">{project.year}</time>
               <h3 className="h5 font-bold text-gray-100">{project.name}</h3>
               <p>{project.description}</p>
             </Link>
 
-            {project.repo && (
-              <div>
+            <div>
+              {project.repo && (
                 <GithubButton repo={project.repo} isPrivate={project.private} />
-              </div>
-            )}
+              )}
+              {project.externalLink && (
+                <A
+                  className={clsx(
+                    "flex items-center mt-2 badge badge-outline badge-sm p-3 rounded-xl",
+                    "hover:bg-neutral-content/10 transition-all duration-300 ease-in-out",
+                    "text-gray-200 truncate max-w-full"
+                  )}
+                  href={project.externalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IoMdGlobe className="inline-block mr-1" />
+                  {project.externalLink.replace("https://", "")}
+                </A>
+              )}
+            </div>
 
             <div className="flex absolute left-0 bottom-0 w-full h-1">
               {project.lang &&
