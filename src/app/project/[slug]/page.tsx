@@ -1,5 +1,5 @@
-import React from "react";
+import { redirect } from "next/navigation";
 
 export default function ProjectSlug({ params }: ParamsProps) {
-  return <div>project page with slug: {params.slug}</div>;
+  return redirect("/coming-soon");
 }
