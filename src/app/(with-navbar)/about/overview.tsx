@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Overview() {
   return (
-    <article className="text-justify">
+    <article className="text-justify xl:text-left">
       <p className="p">
         Hi, I am Muhammad Ramdan. Also known as <B>Ramdan</B>.
       </p>
