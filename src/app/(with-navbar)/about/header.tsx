@@ -22,7 +22,7 @@ export default function Header() {
             Muhammad Ramdan
           </h3>
           <h4 className="p text-center xl:text-left">
-            A software engineer, gamer, and a music enthusiast.
+            Software engineer, gamer, and music enthusiast.
           </h4>
         </div>
       </div>
