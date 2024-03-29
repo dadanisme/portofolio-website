@@ -19,7 +19,8 @@ export default async function Projects() {
       <header className="box-y border-b-[0.5px] border-b-neutral-content/20">
         <h1 className="h2 font-bold text-center text-secondary">Projects</h1>
         <p className="text-center">
-          Here are some of the projects I've worked on.
+          Here are some of the projects I've worked on. Click on the project to
+          learn more.
         </p>
       </header>
 
