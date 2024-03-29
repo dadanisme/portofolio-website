@@ -6,9 +6,10 @@ import clsx from "clsx";
 
 interface Props {
   children: React.ReactNode;
+  className?: string;
 }
 
-export default function ProjectModal({ children }: Props) {
+export default function ProjectModal({ children, className }: Props) {
   const [open, setOpen] = useState(true);
 
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function ProjectModal({ children }: Props) {
         "glassmorph border border-secondary"
       )}
     >
-      <Modal.Body>{children}</Modal.Body>
+      <Modal.Body className={clsx(className)}>{children}</Modal.Body>
     </Modal.Legacy>
   );
 }
