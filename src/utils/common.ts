@@ -10,6 +10,7 @@ const langColors: Record<string, string> = {
   TypeScript: "#2b7489",
   HTML: "#e34c26",
   CSS: "#563d7c",
+  SCSS: "#c6538c",
   Shell: "#89e051",
   Python: "#3572A5",
   Other: "#333333",

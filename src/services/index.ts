@@ -12,7 +12,7 @@ interface Project {
   externalLink?: string;
   customLink?: string;
   private?: boolean;
-  year: number;
+  year: number | string;
   lang?: Record<
     string,
     {
@@ -20,16 +20,42 @@ interface Project {
       color: string;
     }
   >;
+  pinned?: boolean;
 }
 
 const projects: Omit<Project, "slug">[] = [
   {
     name: "Stockifi Admin Panel",
-    description: "Stockifi internal admin panel for managing users and data.",
+    description:
+      "Stockifi internal admin panel for managing users and data. Utilizing fully Firebase architecture.",
     repo: "stocklio/admin-panel",
     private: true,
     externalLink: "https://www.stockifi.io",
     year: 2024,
+    pinned: true,
+    image: "/stockifi.png",
+    lang: {
+      TypeScript: {
+        size: 90.4,
+        color: getLangColor("TypeScript"),
+      },
+      SCSS: {
+        size: 8.7,
+        color: getLangColor("SCSS"),
+      },
+      JavaScript: {
+        size: 0.5,
+        color: getLangColor("JavaScript"),
+      },
+      HTML: {
+        size: 0.3,
+        color: getLangColor("HTML"),
+      },
+      Dockerfile: {
+        size: 0.1,
+        color: getLangColor("Dockerfile"),
+      },
+    },
   },
   {
     name: "AyaSeek AI",
@@ -38,6 +64,8 @@ const projects: Omit<Project, "slug">[] = [
     repo: "dadanisme/al-quran",
     customLink: "/ayaseek-ai",
     year: 2024,
+    image: "/ayaseek.png",
+    pinned: true,
   },
   {
     name: "AGAVI Institute",
@@ -46,6 +74,20 @@ const projects: Omit<Project, "slug">[] = [
     private: true,
     externalLink: "https://institute.agavi.id",
     year: 2023,
+    lang: {
+      TypeScript: {
+        size: 98.2,
+        color: getLangColor("TypeScript"),
+      },
+      SCSS: {
+        size: 1.1,
+        color: getLangColor("SCSS"),
+      },
+      Other: {
+        size: 0.7,
+        color: getLangColor("Other"),
+      },
+    },
   },
   {
     name: "ACR Asia Landing Page",
@@ -87,6 +129,7 @@ const projects: Omit<Project, "slug">[] = [
       "Application developed for geospatial information agencies that function to analyze geospatial data",
     year: 2022,
     repo: "bragapm/land-system-big-pm",
+    private: true,
   },
   {
     name: "Portofolio Website",
@@ -153,6 +196,13 @@ const projects: Omit<Project, "slug">[] = [
     repo: "dadanisme/alquran-recognition-server",
     year: 2022,
   },
+  {
+    name: "Inventaris Sarana",
+    description: "A web application for managing school facilities inventory.",
+    repo: "WidaStmik/inventaris-sarana",
+    year: 2024,
+    externalLink: "https://inventaris-sarana.vercel.app",
+  },
 ];
 
 export async function getProjects() {
@@ -200,7 +250,13 @@ export async function getProjects() {
     })
   );
 
-  return data.sort((a, b) => b.year - a.year);
+  return data.sort((a, b) =>
+    a.pinned
+      ? -1
+      : typeof a.year === "number" && typeof b.year === "number"
+      ? b.year - a.year
+      : 0
+  );
 }
 
 const encourageWords = [
