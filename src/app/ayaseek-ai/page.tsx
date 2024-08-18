@@ -12,7 +12,7 @@ export default function NotFound() {
         <h1 className="text-4xl text-secondary font-bold">Download</h1>
         <p className="text-lg">ayaseek-ai-preview.apk</p>
         <a
-          href="https://expo.dev/artifacts/eas/YAznyqcMskNApxZ9iFPUR.apk"
+          href="https://expo.dev/artifacts/eas/bHaMBQYtyo4EspaKyVkygM.apk"
           download="ayaseek-ai.apk"
           target="_blank"
           className="mt-4 btn btn-secondary btn-sm"
