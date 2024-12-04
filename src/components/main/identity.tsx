@@ -55,16 +55,6 @@ export default function Identity() {
 
       <div className="flex justify-center xl:justify-start mt-8">
         <a
-          href="https://wa.me/6285889838142?text=Hello%20Ramdan!"
-          target="_blank"
-          rel="noreferrer"
-          className="btn btn-primary glassmorph btn-outline"
-        >
-          <MdWhatsapp className="text-xl" />
-          Contact
-        </a>
-
-        <a
           href="/MuhammadRamdan_CV.pdf"
           target="_blank"
           rel="noreferrer"
