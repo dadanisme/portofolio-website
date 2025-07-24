@@ -1,13 +1,15 @@
-# Project Guide: Portfolio Website
+# Project Guide: Muhammad Ramdan (dadanisme) Portfolio Website
 
 **Version:** 1.0
 **Date:** January 25, 2025
 
 ## 1. Overview
 
-This document provides the necessary context, conventions, and workflow for developing a personal portfolio website. Its purpose is to guide an AI development assistant in contributing to the codebase effectively and consistently.
+This document provides the necessary context, conventions, and workflow for developing Muhammad Ramdan's personal portfolio website. Its purpose is to guide an AI development assistant in contributing to the codebase effectively and consistently.
 
-The project's goal is to build a modern, responsive portfolio website to showcase personal projects, skills, and experience.
+**Project Goal:** Build a modern, responsive portfolio website for Muhammad Ramdan (dadanisme), a World-Class Developer & Product Innovator, showcasing his expertise in full-stack development, team leadership, and diverse project portfolio.
+
+**Target Audience:** Tech recruiters, startup founders, enterprise clients, and freelance opportunities.
 
 ## 2. Core Mandates for AI Contribution
 
@@ -51,6 +53,10 @@ This is a Next.js application with the following structure:
 ├── tailwind.config.ts
 ├── postcss.config.mjs
 ├── eslint.config.mjs
+├── docs/                 # Documentation
+│   ├── PRD.md           # Product Requirements Document
+│   ├── PORTFOLIO_INFO.md # User information questionnaire
+│   └── Formatted_Work_Experience.csv # Work experience data
 ├── CLAUDE.md            # This file
 └── README.md
 ```
@@ -86,10 +92,40 @@ Run `npm install` to install all dependencies.
     *   Use `camelCase` for variables and functions (e.g., `const userName`, `function getUserName()`)
 *   **File Structure:** Follow Next.js App Router conventions for routing and file organization
 
-## 7. Development Focus
+## 7. Portfolio-Specific Context
 
-Current development priorities:
-1.  Building responsive and modern UI components
-2.  Implementing portfolio sections (projects, skills, experience, contact)
-3.  Optimizing performance and accessibility
-4.  Maintaining clean TypeScript code with proper typing
+### 7.1 Personal Information
+- **Name:** Muhammad Ramdan (nickname: dadanisme)
+- **Title:** World-Class Developer & Product Innovator  
+- **Location:** Bali, Indonesia
+- **Email:** huntercitation@gmail.com
+- **Social:** LinkedIn, GitHub, Facebook profiles available
+
+### 7.2 Key Experience Highlights
+- **Current Roles:** 
+  - Software Developer Team Lead at Stockifi.io (Europe-based, remote)
+  - Lead Software Engineer at Kreasof AI (early-stage startup)
+  - Tech Student at Apple Developer Academy @BINUS Bali
+- **Expertise:** React/TypeScript, Swift, team leadership, scalable solutions
+- **Experience:** 5+ years, managed teams, served 300+ users globally
+
+### 7.3 Featured Projects to Showcase
+1. **Stockifi Trading Platform** - Enterprise React/TypeScript application
+2. **AI-Powered Drone Inspection Dashboard** - Real-time data visualization  
+3. **WebGIS Mapping Solutions** - Interactive mapping with OpenLayers/Mapbox
+4. **Smart Tracking System** - Firebase automation tools
+5. **Mobile Trading App** - React Native financial application
+
+### 7.4 Development Priorities
+1. Building responsive and modern UI components using shadcn/ui
+2. Implementing portfolio sections (hero, about, skills, projects, experience, contact)
+3. Showcasing technical expertise and leadership experience
+4. Optimizing for target audience (recruiters, startup founders, clients)
+5. Maintaining clean TypeScript code with proper typing
+
+### 7.5 Design Requirements
+- Clean, professional aesthetic suitable for "World-Class Developer" branding
+- Dark mode support with shadcn/ui theming
+- Mobile-first responsive design
+- Fast performance (< 3 seconds load time)
+- Accessibility compliance (WCAG AA)
