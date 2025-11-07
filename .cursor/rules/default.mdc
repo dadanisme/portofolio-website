@@ -1,0 +1,298 @@
+---
+alwaysApply: true
+---
+
+# Portfolio Project - LLM Development Guide
+
+## Core Principles
+
+### File Size & Organization
+
+- **MAX 150 LINES PER FILE** - Split larger files into logical modules
+- Use type-based organization:
+  - `/src/components/layouts/` - Layout components (header, footer, sections)
+  - `/src/components/ui/` - shadcn UI components
+  - `/src/components/shared/` - Reusable custom components
+  - `/src/content/blog/` - Blog MDX files
+  - `/src/content/projects/` - Project MDX files
+  - `/src/lib/` - Utilities, hooks, helpers
+  - `/src/types/` - TypeScript type definitions
+- File naming: kebab-case (e.g., `blog-card.tsx`, `project-grid.tsx`)
+- Component naming: PascalCase (e.g., `BlogCard`, `ProjectGrid`)
+
+### Code Quality Standards
+
+- **Always apply best practices** - No shortcuts, production-ready code
+- **Clear separation of concerns** - Logic, UI, and styles properly separated
+- **Semantic HTML** - Use appropriate tags (`<article>`, `<section>`, `<nav>`, etc.)
+- **Accessibility first** - WCAG 2.1 AA compliance minimum
+- Import order: external → internal → types → styles
+
+## Technology Stack
+
+### Next.js 16 (App Router)
+
+- Use Server Components by default (add `'use client'` only when needed)
+- Server Actions for mutations, not API routes
+- Dynamic metadata for SEO (`generateMetadata`)
+- Streaming with `<Suspense>` for better UX
+- Route groups for organization: `(routes)`, `(marketing)`
+
+### TypeScript
+
+- Strict mode enabled - no `any` types without justification
+- Use interfaces for props, types for unions/intersections
+- Proper JSDoc comments for complex props
+- Export types alongside components
+
+```typescript
+interface BlogCardProps {
+  /** The blog post title */
+  title: string;
+  /** ISO date string */
+  publishedAt: string;
+  slug: string;
+}
+```
+
+### Tailwind CSS & Semantic Colors
+
+- Use semantic color system from `globals.css`
+- Prefer `bg-background`, `text-foreground`, `border-border` over direct colors
+- Custom utilities in `@layer utilities` when needed
+- Responsive design: mobile-first approach
+- Dark mode support using `class` strategy
+
+### shadcn/ui Components
+
+- **Use shadcn MCP to search and add components** - Don't build from scratch
+- Search via MCP: `mcp_shadcn_search_items_in_registries`
+- View examples: `mcp_shadcn_get_item_examples_from_registries`
+- Customize in `/src/components/ui/` after installation
+- Prefer composition over creating new UI primitives
+
+### Motion (Animation Library)
+
+- **Subtle, professional animations only** - No excessive motion
+- Use motion MCP for CSS spring/bounce generation
+- Respect `prefers-reduced-motion` media query
+- Animation durations:
+  - Quick/Snappy: ~0.2s
+  - Normal: 0.3-0.4s
+  - Slow/Dramatic: ~1s (rarely used)
+- Generate springs via MCP: `mcp_motion_generate-css-spring`
+- Default spring: `bounce: 0.2, duration: 0.4`
+
+```typescript
+// Example: Subtle fade-in animation
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+>
+```
+
+## MDX Content Management
+
+### File Structure
+
+```
+/src/content/
+  blog/
+    my-first-post.mdx
+    another-post.mdx
+  projects/
+    portfolio-website.mdx
+    ecommerce-app.mdx
+```
+
+### Frontmatter Schema
+
+```yaml
+---
+title: "Blog Post Title"
+description: "SEO description"
+publishedAt: "2024-01-15"
+updatedAt: "2024-01-20"
+tags: ["nextjs", "react", "typescript"]
+featured: true
+author: "Your Name"
+---
+```
+
+### Custom MDX Components
+
+- Define reusable components in `/src/components/mdx/`
+- Register in `src/mdx-components.tsx`
+- Keep components focused and simple
+
+```typescript
+// mdx-components.tsx example
+import { Callout } from "@/components/mdx/callout";
+import { CodeBlock } from "@/components/mdx/code-block";
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    Callout,
+    CodeBlock,
+    ...components,
+  };
+}
+```
+
+### Content Utilities
+
+- Create helpers in `/src/lib/content.ts` for:
+  - Fetching all posts/projects
+  - Sorting by date
+  - Filtering by tags
+  - Generating slugs
+
+## Component Guidelines
+
+### Server vs Client Components
+
+- **Default: Server Component** (better performance, SEO)
+- Use `'use client'` when:
+  - Using React hooks (`useState`, `useEffect`, etc.)
+  - Adding event listeners (`onClick`, `onChange`)
+  - Using browser APIs
+  - Working with motion animations
+
+### Component Structure
+
+```typescript
+// Server Component (default)
+interface HeroProps {
+  title: string;
+  subtitle: string;
+}
+
+export function Hero({ title, subtitle }: HeroProps) {
+  return (
+    <section className="container mx-auto px-4">
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+    </section>
+  );
+}
+
+// Client Component (when needed)
+'use client';
+
+import { useState } from 'react';
+
+export function InteractiveCard() {
+  const [isHovered, setIsHovered] = useState(false);
+  // ...
+}
+```
+
+### Props Best Practices
+
+- Destructure props in function signature
+- Provide default values when appropriate
+- Use optional chaining for nested properties
+- Type children properly: `React.ReactNode`
+
+## Performance & Optimization
+
+### Images
+
+- Use Next.js `<Image>` component always
+- Provide `width` and `height` or `fill` prop
+- Use `priority` for above-fold images
+- Lazy load below-fold content
+
+### Fonts
+
+- Use `next/font` for optimal loading
+- Preload critical fonts
+- Use font-display: swap
+
+### Code Splitting
+
+- Dynamic imports for heavy components
+- Lazy load modals, carousels, maps
+
+```typescript
+const HeavyChart = dynamic(() => import("@/components/charts/heavy-chart"));
+```
+
+## Accessibility Requirements
+
+- All images have descriptive `alt` text
+- Proper heading hierarchy (h1 → h2 → h3)
+- Interactive elements are keyboard accessible
+- Focus states visible and clear
+- ARIA labels for icon-only buttons
+- Form inputs have associated labels
+- Color contrast ratio ≥ 4.5:1
+
+## SEO Best Practices
+
+- Unique `<title>` and `<meta description>` per page
+- Open Graph tags for social sharing
+- Structured data (JSON-LD) for blog posts
+- Sitemap generation
+- robots.txt configuration
+- Canonical URLs to prevent duplicates
+
+## Code Quality Tools
+
+### ESLint
+
+- Run `npm run lint` before committing
+- Fix automatically: `npm run lint:fix`
+- No warnings in production build
+
+### Prettier
+
+- Run `npm run format` to format all files
+- Integrated with ESLint via `eslint-config-prettier`
+- Check formatting: `npm run format:check`
+
+## Workflow
+
+1. **Starting new feature**: Check if shadcn component exists via MCP
+2. **Creating animations**: Use motion MCP to generate spring/bounce CSS
+3. **Adding content**: Create MDX file with proper frontmatter
+4. **Before commit**: Run lint and format checks
+5. **Component growing**: Split at 150 lines - extract logic/sub-components
+
+## Common Patterns
+
+### Blog Post Card
+
+```typescript
+interface BlogPostCardProps {
+  title: string;
+  description: string;
+  publishedAt: string;
+  slug: string;
+  tags: string[];
+}
+
+export function BlogPostCard({ title, description, publishedAt, slug, tags }: BlogPostCardProps) {
+  return (
+    <article className="group">
+      <Link href={`/blog/${slug}`}>
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-muted-foreground">{description}</p>
+        <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
+        <div className="flex gap-2">
+          {tags.map(tag => <span key={tag}>{tag}</span>)}
+        </div>
+      </Link>
+    </article>
+  );
+}
+```
+
+### Project Grid
+
+- Use CSS Grid for responsive layouts
+- Avoid arbitrary breakpoints, use `auto-fit` / `auto-fill`
+- Loading states with skeleton screens
+
+Remember: Quality over speed. Build it right the first time.
