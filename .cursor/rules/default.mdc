@@ -33,6 +33,8 @@ alwaysApply: true
 ### Next.js 16 (App Router)
 
 - Use Server Components by default (add `'use client'` only when needed)
+- **`page.tsx` files MUST always be Server Components** - Never add `'use client'` to `page.tsx` files
+- If client-side interactivity is needed in a page, extract it into a separate client component
 - Server Actions for mutations, not API routes
 - Dynamic metadata for SEO (`generateMetadata`)
 - Streaming with `<Suspense>` for better UX
@@ -153,7 +155,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 ### Server vs Client Components
 
 - **Default: Server Component** (better performance, SEO)
-- Use `'use client'` when:
+- **CRITICAL: `page.tsx` files are ALWAYS Server Components** - Never mark `page.tsx` with `'use client'`
+  - If a page needs client-side interactivity, extract that functionality into a separate client component
+  - Import and use the client component within the server component `page.tsx`
+- Use `'use client'` in component files (not `page.tsx`) when:
   - Using React hooks (`useState`, `useEffect`, etc.)
   - Adding event listeners (`onClick`, `onChange`)
   - Using browser APIs
@@ -162,6 +167,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 ### Component Structure
 
 ```typescript
+// page.tsx - ALWAYS a Server Component (never use 'use client')
+import { InteractiveCard } from '@/components/shared/interactive-card';
+
+export default function Page() {
+  return (
+    <main>
+      <Hero title="Welcome" subtitle="To my portfolio" />
+      <InteractiveCard />
+    </main>
+  );
+}
+
 // Server Component (default)
 interface HeroProps {
   title: string;
@@ -177,7 +194,7 @@ export function Hero({ title, subtitle }: HeroProps) {
   );
 }
 
-// Client Component (when needed)
+// Client Component (separate file, e.g., components/shared/interactive-card.tsx)
 'use client';
 
 import { useState } from 'react';
