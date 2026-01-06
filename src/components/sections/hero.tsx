@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Globe } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 export function Hero() {
   return (
@@ -19,13 +19,13 @@ export function Hero() {
           huntercitation@gmail.com
         </a>
         <a
-          href="https://muhammadramdan.com"
+          href="https://www.linkedin.com/in/dadanisme/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 hover:text-foreground transition-colors"
         >
-          <Globe className="h-4 w-4" />
-          muhammadramdan.com
+          <Linkedin className="h-4 w-4" />
+          LinkedIn
         </a>
       </div>
 
