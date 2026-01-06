@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://muhammadramdan.com"),
   title: "Muhammad Ramdan | Software Engineer",
   description:
     "Software Engineer with 5+ years of experience. Team Lead at Stockifi, Apple Developer Academy Alumni. Skilled in TypeScript, React, Node.js, and Swift.",

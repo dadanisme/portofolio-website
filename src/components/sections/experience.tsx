@@ -13,22 +13,6 @@ interface Job {
 
 const jobs: Job[] = [
   {
-    company: "Apple Developer Academy @BINUS - Bali",
-    location: "Bali, Indonesia",
-    roles: [
-      {
-        title: "Apple Developer Academy Alumni",
-        type: "Apprenticeship",
-        period: "Feb 2025 - Dec 2025",
-        bullets: [
-          "Initiate & facilitate 7 practical coding sessions for learners to learn and share knowledge",
-          "Share coding & technology related knowledge to fellow learners",
-          "Participate in 6 challenge based learning projects as the team leader",
-        ],
-      },
-    ],
-  },
-  {
     company: "Kreasof AI",
     location: "Jakarta, Indonesia (Remote)",
     roles: [
@@ -68,6 +52,22 @@ const jobs: Job[] = [
           "Produced 50+ cloud functions with Firebase & Google Cloud",
           "Created 8 OCR-related bots with Vertex AI, Google Gemini, & self-made model",
           "Made 25 web scraping bots using Playwright running in Cloud Run containers",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Apple Developer Academy @BINUS - Bali",
+    location: "Bali, Indonesia",
+    roles: [
+      {
+        title: "Apple Developer Academy Alumni",
+        type: "Apprenticeship",
+        period: "Feb 2025 - Dec 2025",
+        bullets: [
+          "Initiate & facilitate 7 practical coding sessions for learners to learn and share knowledge",
+          "Share coding & technology related knowledge to fellow learners",
+          "Participate in 6 challenge based learning projects as the team leader",
         ],
       },
     ],
@@ -202,11 +202,7 @@ function JobEntry({ job }: { job: Job }) {
   );
 }
 
-function RoleEntry({
-  role,
-}: {
-  role: Job["roles"][number];
-}) {
+function RoleEntry({ role }: { role: Job["roles"][number] }) {
   return (
     <div className="space-y-2 pl-4 border-l-2 border-border">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
