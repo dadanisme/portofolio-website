@@ -13,8 +13,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Under Construction | Portfolio",
-  description: "Website under construction. Coming soon!",
+  title: "Muhammad Ramdan | Software Engineer",
+  description:
+    "Software Engineer with 5+ years of experience. Team Lead at Stockifi, Apple Developer Academy Alumni. Skilled in TypeScript, React, Node.js, and Swift.",
+  keywords: [
+    "Software Engineer",
+    "Full Stack Developer",
+    "Stockifi",
+    "Apple Developer Academy",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Next.js",
+    "Python",
+    "Swift",
+  ],
+  authors: [{ name: "Muhammad Ramdan" }],
+  openGraph: {
+    title: "Muhammad Ramdan | Software Engineer",
+    description:
+      "Software Engineer with 5+ years of experience. Team Lead at Stockifi, Apple Developer Academy Alumni. Skilled in TypeScript, React, Node.js, and Swift.",
+    url: "https://muhammadramdan.com",
+    siteName: "Muhammad Ramdan",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Ramdan - Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Muhammad Ramdan | Software Engineer",
+    description:
+      "Software Engineer with 5+ years of experience. Team Lead at Stockifi, Apple Developer Academy Alumni.",
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

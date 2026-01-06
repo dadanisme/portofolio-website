@@ -17,9 +17,9 @@ const jobs: Job[] = [
     location: "Bali, Indonesia",
     roles: [
       {
-        title: "Tech Student",
+        title: "Apple Developer Academy Alumni",
         type: "Apprenticeship",
-        period: "Feb 2025 - Present",
+        period: "Feb 2025 - Dec 2025",
         bullets: [
           "Initiate & facilitate 7 practical coding sessions for learners to learn and share knowledge",
           "Share coding & technology related knowledge to fellow learners",
