@@ -13,22 +13,6 @@ interface Job {
 
 const jobs: Job[] = [
   {
-    company: "Kreasof AI",
-    location: "Jakarta, Indonesia (Remote)",
-    roles: [
-      {
-        title: "Co-Founder, Lead Software Engineer",
-        type: "Self-Employed",
-        period: "Jan 2025 - Present",
-        bullets: [
-          "Built this company in the spirit of local AI research especially in the LLM field",
-          "Released 3 papers in international conferences regarding LLM-related topics",
-          "Doing product research in the AI field, finding how AI fits into real world scenarios",
-        ],
-      },
-    ],
-  },
-  {
     company: "Stockifi",
     location: "Oslo, Norway (Remote)",
     roles: [
@@ -68,6 +52,22 @@ const jobs: Job[] = [
           "Initiate & facilitate 7 practical coding sessions for learners to learn and share knowledge",
           "Share coding & technology related knowledge to fellow learners",
           "Participate in 6 challenge based learning projects as the team leader",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Kreasof AI",
+    location: "Jakarta, Indonesia (Remote)",
+    roles: [
+      {
+        title: "Co-Founder, Lead Software Engineer",
+        type: "Self-Employed",
+        period: "Jan 2025 - Dec 2025",
+        bullets: [
+          "Built this company in the spirit of local AI research especially in the LLM field",
+          "Released 3 papers in international conferences regarding LLM-related topics",
+          "Doing product research in the AI field, finding how AI fits into real world scenarios",
         ],
       },
     ],
