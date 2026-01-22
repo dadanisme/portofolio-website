@@ -41,12 +41,22 @@ For full JSON data: `python3 .claude/skills/homepage/scripts/read_content.py jso
 
 ### Step 2: Present Options
 
-Ask the user what they want to do:
+**IMPORTANT**: Use the `AskUserQuestion` tool to present options. Do NOT just output text with options.
 
-- **Hero** - Edit name, title, overview, or primary skills
-- **Experience** - Add, edit, or remove work experience
-- **Education** - Add, edit, or remove education entries
-- **Skills** - Add, edit, or remove skill categories
+```
+AskUserQuestion with:
+  question: "Which section would you like to update?"
+  header: "Section"
+  options:
+    - label: "Hero"
+      description: "Edit name, title, overview, or primary skills"
+    - label: "Experience"
+      description: "Add, edit, or remove work experience"
+    - label: "Education"
+      description: "Add, edit, or remove education entries"
+    - label: "Skills"
+      description: "Add, edit, or remove skill categories"
+```
 
 ---
 
@@ -67,9 +77,9 @@ export interface HeroData {
 
 ### Edit Workflow
 
-1. Ask which field to edit
+1. Use `AskUserQuestion` to ask which field to edit (name, title, overview, primarySkills)
 2. Read the file to get current value
-3. Get new value from user
+3. Use `AskUserQuestion` to get new value from user (use "Other" option for free-form input)
 4. Update the exported `hero` object
 
 ---
@@ -95,24 +105,19 @@ export interface Job {
 }
 ```
 
-### Add Experience
+### Experience Workflow
 
-1. Gather: company name, location, role details (title, type, period, bullets)
-2. Determine position (most recent jobs appear first in array)
-3. Add new entry to the `jobs` array
+First, use `AskUserQuestion` to ask what action to take:
 
-### Edit Experience
+- Add new experience
+- Edit existing experience
+- Remove experience
 
-1. Ask which company/role to edit (by number from script output)
-2. Read the file to get current data
-3. Ask what to modify (company, location, role details, bullets)
-4. Apply changes
+**Add Experience**: Use `AskUserQuestion` to gather company name, location, role details (title, type, period, bullets). Most recent jobs appear first in array.
 
-### Remove Experience
+**Edit Experience**: Use `AskUserQuestion` to select which company/role to edit (show numbered list from script output), then ask what to modify.
 
-1. Ask which company to remove (by number)
-2. Confirm deletion
-3. Remove entry from the `jobs` array
+**Remove Experience**: Use `AskUserQuestion` to select which company to remove, then confirm deletion.
 
 ---
 
@@ -132,9 +137,9 @@ export interface Education {
 }
 ```
 
-### Add/Edit/Remove Education
+### Education Workflow
 
-Same workflow as Experience - modify the `education` array.
+Same workflow as Experience - use `AskUserQuestion` to ask what action (add/edit/remove), then gather details or select entries to modify.
 
 ---
 
@@ -151,22 +156,19 @@ export interface SkillCategory {
 }
 ```
 
-### Add Skill Category
+### Skills Workflow
 
-1. Get category title
-2. Get initial skills list
-3. Add to `skillCategories` array
+First, use `AskUserQuestion` to ask what action to take:
 
-### Edit Skill Category
+- Add new skill category
+- Edit existing category
+- Remove category
 
-1. Ask which category (by number or title)
-2. Options: rename, add skills, remove skills, reorder
+**Add Category**: Use `AskUserQuestion` to get category title, then gather initial skills list.
 
-### Remove Skill Category
+**Edit Category**: Use `AskUserQuestion` to select which category, then ask what to modify (rename, add skills, remove skills, reorder).
 
-1. Ask which category to remove
-2. Confirm deletion
-3. Remove from array
+**Remove Category**: Use `AskUserQuestion` to select which category to remove, then confirm deletion.
 
 ---
 
