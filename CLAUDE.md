@@ -15,30 +15,46 @@ npm run format:check # Check formatting
 
 ## Architecture
 
-This is a Next.js 16 portfolio website using the App Router with MDX support for blog/project content.
+This is a Next.js 16 portfolio website using the App Router with MDX support for project content.
 
 ### Tech Stack
 - **Framework**: Next.js 16 with React 19 and React Compiler
 - **Styling**: Tailwind CSS 4 with shadcn/ui components
-- **Content**: MDX with rehype-pretty-code for syntax highlighting
+- **Content**: MDX with next-mdx-remote for dynamic project pages
 - **Animation**: Motion library (framer-motion successor)
 - **Fonts**: Geist Mono (monospace throughout)
 
 ### Project Structure
 ```
 src/
-  app/              # Next.js App Router pages
+  app/
+    page.tsx              # Home page
+    projects/
+      page.tsx            # Projects list
+      [slug]/page.tsx     # Project detail with MDX + TOC
+    contact/
+      page.tsx            # Contact page
   components/
-    layouts/        # Header, footer, sections
-    ui/             # shadcn/ui components
-    shared/         # Reusable custom components
-    mdx/            # Custom MDX components
+    sections/             # Page sections (hero, experience, education, skills)
+    ui/                   # shadcn/ui components
+    shared/               # Reusable components (navigation, cards, TOC)
+    mdx/                  # Custom MDX components (heading, mdx-image)
   content/
-    blog/           # Blog MDX files
-    projects/       # Project MDX files
-  lib/              # Utilities (cn helper, content fetchers)
-  types/            # TypeScript definitions
+    projects/             # Project MDX files
+  lib/
+    constants/            # Navigation links, contact info
+    content.ts            # MDX content fetching utilities
+    toc.ts                # Table of contents extraction
+    mdx-config.tsx        # MDX component configuration
+  types/
+    content.ts            # Content type definitions
 ```
+
+### Routes
+- `/` - Home page with hero, experience, education, skills
+- `/projects` - Projects list with cards
+- `/projects/[slug]` - Project detail with MDX content and table of contents
+- `/contact` - Contact page with card-based layout
 
 ### Key Patterns
 
@@ -58,9 +74,15 @@ src/
 - Component names: PascalCase (`BlogCard`)
 
 **MDX Content**:
-- Frontmatter schema: title, description, publishedAt, updatedAt, tags, featured, author
-- Custom components registered in `src/mdx-components.tsx`
-- Content utilities in `/src/lib/content.ts`
+- Frontmatter schema: title, description, publishedAt, updatedAt, tags, featured
+- Custom components in `src/lib/mdx-config.tsx`
+- Content utilities in `src/lib/content.ts`
+- TOC extraction in `src/lib/toc.ts`
+
+**Navigation**:
+- Tab bar with Home, Projects, Contact
+- Contact links (email, LinkedIn) hidden on mobile
+- Active state detection using `usePathname()`
 
 ### Path Alias
 `@/*` maps to `./src/*`

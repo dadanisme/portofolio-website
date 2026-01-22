@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Linkedin } from "lucide-react";
 
 export function Hero() {
   return (
@@ -8,25 +7,6 @@ export function Hero() {
       <div className="space-y-2">
         <h1 className="text-4xl font-bold tracking-tight">Muhammad Ramdan</h1>
         <p className="text-xl text-muted-foreground">Software Engineer</p>
-      </div>
-
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
-        <a
-          href="mailto:huntercitation@gmail.com"
-          className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-        >
-          <Mail className="h-4 w-4" />
-          huntercitation@gmail.com
-        </a>
-        <a
-          href="https://www.linkedin.com/in/dadanisme/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-        >
-          <Linkedin className="h-4 w-4" />
-          LinkedIn
-        </a>
       </div>
 
       <Separator />

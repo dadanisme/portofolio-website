@@ -1,0 +1,69 @@
+---
+title: Example Project
+description: A sample project showcasing the MDX content system with table of contents support.
+publishedAt: 2024-01-15
+tags:
+  - React
+  - TypeScript
+  - Next.js
+featured: true
+---
+
+This is an example project demonstrating the MDX content system. It includes headings, code blocks, lists, and more.
+
+## Getting Started
+
+To get started with this project, you'll need to have Node.js installed on your machine. Then, follow these steps:
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Run the development server with `npm run dev`
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js 18 or later
+- npm or yarn package manager
+
+## Features
+
+This project includes several key features:
+
+- **Type Safety**: Built with TypeScript for robust type checking
+- **Modern React**: Uses React 19 with the latest features
+- **Server Components**: Leverages Next.js App Router for optimal performance
+
+### Code Example
+
+Here's a simple example of a React component:
+
+```tsx
+export function Button({ children }: { children: React.ReactNode }) {
+  return (
+    <button className="px-4 py-2 bg-primary text-primary-foreground">
+      {children}
+    </button>
+  );
+}
+```
+
+## Architecture
+
+The project follows a clean architecture pattern with clear separation of concerns.
+
+### Component Structure
+
+Components are organized into three categories:
+
+- `ui/` - Base UI components (buttons, inputs, etc.)
+- `shared/` - Reusable composite components
+- `sections/` - Page-level section components
+
+## Conclusion
+
+This example project demonstrates the capabilities of the MDX content system. Feel free to use it as a starting point for your own projects.
+
+> "The best code is no code at all." - Jeff Atwood
+
+For more information, check out the [Next.js documentation](https://nextjs.org/docs).
