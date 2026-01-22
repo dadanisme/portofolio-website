@@ -29,7 +29,7 @@ python3 .claude/skills/projects/scripts/read_projects.py slugs         # Just sl
 
 ### Step 2: Present Options
 
-Ask the user what they want to do:
+Use the `AskUserQuestion` tool to ask the user what they want to do with selectable options:
 
 - **Add** - Create a new project
 - **Edit** - Modify an existing project
