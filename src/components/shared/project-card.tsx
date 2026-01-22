@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Project } from "@/types/content";
 
@@ -11,8 +12,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <Link href={`/projects/${slug}`} className="block group">
-      <article className="border border-border p-6 transition-colors hover:bg-muted/50">
-        <div className="space-y-3">
+      <article className="border border-border transition-colors hover:bg-muted/50 overflow-hidden">
+        {frontmatter.image && (
+          <div className="relative w-full overflow-hidden">
+            <Image
+              src={frontmatter.image}
+              alt={frontmatter.title}
+              width={600}
+              height={315}
+              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
+        <div className="p-6 space-y-3">
           <h2 className="text-xl font-semibold group-hover:text-muted-foreground transition-colors">
             {frontmatter.title}
           </h2>

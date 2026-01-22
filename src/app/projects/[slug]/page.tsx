@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/content";
 import { extractTOC } from "@/lib/toc";
 import { TableOfContents } from "@/components/shared/table-of-contents";
+import { CoverImage } from "@/components/shared/cover-image";
 import { Badge } from "@/components/ui/badge";
 import { mdxComponents } from "@/lib/mdx-config";
 
@@ -24,9 +25,22 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return { title: "Project Not Found" };
   }
 
+  const ogImage = project.frontmatter.image || "/og.png";
+
   return {
     title: `${project.frontmatter.title} | Muhammad Ramdan`,
     description: project.frontmatter.description,
+    openGraph: {
+      title: project.frontmatter.title,
+      description: project.frontmatter.description,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.frontmatter.title,
+      description: project.frontmatter.description,
+      images: [ogImage],
+    },
   };
 }
 
@@ -59,6 +73,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </Badge>
                 ))}
               </div>
+              {project.frontmatter.image && (
+                <CoverImage
+                  src={project.frontmatter.image}
+                  alt={project.frontmatter.title}
+                  priority
+                />
+              )}
               <p className="text-sm text-muted-foreground">
                 Published{" "}
                 {new Date(project.frontmatter.publishedAt).toLocaleDateString(
