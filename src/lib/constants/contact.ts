@@ -7,9 +7,9 @@ export interface ContactInfo {
 }
 
 export const contactInfo: ContactInfo = {
-  email: "huntercitation@gmail.com",
+  email: "contact@muhammadramdan.com",
   linkedin: "https://www.linkedin.com/in/dadanisme/",
   github: "https://github.com/dadanisme",
-  instagram: "https://instagram.com/dadanisme",
+  instagram: "https://instagram.com/dadanis.me",
   location: "Indonesia",
 };
