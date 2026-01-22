@@ -19,7 +19,18 @@ export const jobs: Job[] = [
       {
         title: "Software Engineer Team Lead",
         type: "Full-time",
-        period: "Sep 2024 - Present",
+        period: "Sep 2025 - Present",
+        bullets: [
+          "Lead a team of 5 engineers working remotely across different countries",
+          "Started a personal projects program so team members can learn new technologies",
+          "Support team growth through mentoring and helpful code reviews",
+          "Report to CEO on team progress and development plans",
+        ],
+      },
+      {
+        title: "Software Developer Level 2",
+        type: "Full-time",
+        period: "Sep 2024 - Aug 2025",
         bullets: [
           "Guided the team, provided technical support, and kept the team dynamics",
           "Reviewed approximately 240 Pull Requests within the last year",
