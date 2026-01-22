@@ -1,56 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-
-interface SkillCategory {
-  title: string;
-  skills: string[];
-}
-
-const skillCategories: SkillCategory[] = [
-  {
-    title: "Languages",
-    skills: [
-      "English (Fluent)",
-      "Bahasa Indonesia (Native)",
-      "Norwegian (Novice)",
-    ],
-  },
-  {
-    title: "Soft Skills",
-    skills: ["Public Speaking", "Scrum", "Project Management", "Communication"],
-  },
-  {
-    title: "Web",
-    skills: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Redux",
-      "Next.js",
-      "TypeScript",
-    ],
-  },
-  {
-    title: "Mobile",
-    skills: ["React Native", "Swift", "SwiftUI", "UIKit"],
-  },
-  {
-    title: "Additional",
-    skills: [
-      "C++",
-      "Node.js",
-      "Python (Flask)",
-      "Firebase",
-      "Machine Learning",
-      "NLP",
-      "Computer Vision",
-      "GIS (Mapbox/OpenLayers)",
-      "Google Cloud Platform",
-      "IoT",
-    ],
-  },
-];
+import { skillCategories } from "@/content/homepage";
 
 export function Skills() {
   return (
