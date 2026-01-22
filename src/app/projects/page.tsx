@@ -22,7 +22,9 @@ export default function ProjectsPage() {
           </div>
 
           {projects.length === 0 ? (
-            <p className="text-muted-foreground">No projects yet. Check back soon!</p>
+            <p className="text-muted-foreground">
+              No projects yet. Check back soon!
+            </p>
           ) : (
             <div className="grid gap-6 md:grid-cols-2">
               {projects.map((project) => (

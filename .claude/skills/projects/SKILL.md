@@ -14,12 +14,14 @@ Manage project pages for the portfolio website. Projects are MDX files in `src/c
 ### Step 1: List Existing Projects
 
 When the skill is triggered, first list all existing projects by reading files from `src/content/projects/`. Display each project with:
+
 - Title
 - Slug (filename)
 - Published date
 - Tags
 
 Example output:
+
 ```
 Existing Projects:
 1. Example Project (example-project) - 2024-01-15 [React, TypeScript, Next.js]
@@ -28,6 +30,7 @@ Existing Projects:
 ### Step 2: Present Options
 
 Ask the user what they want to do:
+
 - **Add** - Create a new project
 - **Edit** - Modify an existing project
 - **Delete** - Remove a project

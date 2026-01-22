@@ -7,7 +7,12 @@ interface MDXImageProps {
   height?: number;
 }
 
-export function MDXImage({ src, alt, width = 800, height = 450 }: MDXImageProps) {
+export function MDXImage({
+  src,
+  alt,
+  width = 800,
+  height = 450,
+}: MDXImageProps) {
   return (
     <figure className="my-8">
       <div className="overflow-hidden border border-border">

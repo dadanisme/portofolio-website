@@ -2,20 +2,20 @@
 
 ## Required Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `title` | string | The project title displayed on the page |
-| `description` | string | Brief summary shown in project cards and metadata |
-| `publishedAt` | string | Publication date in `YYYY-MM-DD` format |
-| `tags` | string[] | Array of technology/category tags |
+| Field         | Type     | Description                                       |
+| ------------- | -------- | ------------------------------------------------- |
+| `title`       | string   | The project title displayed on the page           |
+| `description` | string   | Brief summary shown in project cards and metadata |
+| `publishedAt` | string   | Publication date in `YYYY-MM-DD` format           |
+| `tags`        | string[] | Array of technology/category tags                 |
 
 ## Optional Fields
 
-| Field | Type | Default | Description |
-|-------|------|---------|-------------|
-| `updatedAt` | string | - | Last update date in `YYYY-MM-DD` format |
-| `featured` | boolean | false | Whether to highlight this project |
-| `image` | string | - | Path to a cover image |
+| Field       | Type    | Default | Description                             |
+| ----------- | ------- | ------- | --------------------------------------- |
+| `updatedAt` | string  | -       | Last update date in `YYYY-MM-DD` format |
+| `featured`  | boolean | false   | Whether to highlight this project       |
+| `image`     | string  | -       | Path to a cover image                   |
 
 ## Example Frontmatter
 

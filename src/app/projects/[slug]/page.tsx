@@ -17,7 +17,9 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
@@ -58,7 +60,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main className="min-h-screen bg-background py-16">
       <div className="container mx-auto px-4">
         <div className="flex gap-12">
-          <article className="flex-1 min-w-0 max-w-3xl">
+          <aside className="hidden lg:block w-64 shrink-0">
+            <div className="sticky top-24">
+              <TableOfContents items={tocItems} />
+            </div>
+          </aside>
+
+          <article className="min-w-0 max-w-3xl">
             <header className="mb-12 space-y-4">
               <h1 className="text-4xl font-bold tracking-tight">
                 {project.frontmatter.title}
@@ -97,12 +105,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <MDXRemote source={project.content} components={mdxComponents} />
             </div>
           </article>
-
-          <aside className="hidden lg:block w-64 shrink-0">
-            <div className="sticky top-24">
-              <TableOfContents items={tocItems} />
-            </div>
-          </aside>
         </div>
       </div>
     </main>

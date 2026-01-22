@@ -9,7 +9,11 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
-    skills: ["English (Fluent)", "Bahasa Indonesia (Native)", "Norwegian (Novice)"],
+    skills: [
+      "English (Fluent)",
+      "Bahasa Indonesia (Native)",
+      "Norwegian (Novice)",
+    ],
   },
   {
     title: "Soft Skills",
@@ -17,7 +21,15 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "Web",
-    skills: ["HTML", "CSS", "JavaScript", "React", "Redux", "Next.js", "TypeScript"],
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Next.js",
+      "TypeScript",
+    ],
   },
   {
     title: "Mobile",
