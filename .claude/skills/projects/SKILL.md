@@ -13,18 +13,18 @@ Manage project pages for the portfolio website. Projects are MDX files in `src/c
 
 ### Step 1: List Existing Projects
 
-When the skill is triggered, first list all existing projects by reading files from `src/content/projects/`. Display each project with:
+Run the script to get a compact summary of all projects:
 
-- Title
-- Slug (filename)
-- Published date
-- Tags
-
-Example output:
-
+```bash
+python3 .claude/skills/projects/scripts/read_projects.py list
 ```
-Existing Projects:
-1. Example Project (example-project) - 2024-01-15 [React, TypeScript, Next.js]
+
+This outputs a token-efficient summary. Other commands:
+
+```bash
+python3 .claude/skills/projects/scripts/read_projects.py json          # Full JSON data
+python3 .claude/skills/projects/scripts/read_projects.py detail <slug> # Single project details
+python3 .claude/skills/projects/scripts/read_projects.py slugs         # Just slug names
 ```
 
 ### Step 2: Present Options
@@ -53,7 +53,7 @@ Ask the user what they want to do:
 
 ## Edit Project
 
-1. Ask which project to edit (by number or slug)
+1. Ask which project to edit (by number or slug from script output)
 
 2. Read the existing MDX file
 
@@ -84,6 +84,10 @@ Ask the user what they want to do:
 - Keep content focused and well-organized
 
 ## Resources
+
+### scripts/
+
+- `read_projects.py` - Parses MDX files and outputs compact summary
 
 ### references/
 
