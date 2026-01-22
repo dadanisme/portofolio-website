@@ -52,6 +52,40 @@ export const jobs: Job[] = [
     ],
   },
   {
+    company: "Clamby",
+    location: "Remote",
+    roles: [
+      {
+        title: "CEO & Founder",
+        type: "Self-Employed",
+        period: "Sep 2025 - Present",
+        bullets: [
+          "Founded an AI-powered fashion app that generates outfit recommendations from existing wardrobe items",
+          "Built innovative selfie-to-wardrobe feature where AI extracts fashion items into studio-grade photos",
+          "Attracted interest from 2 business incubators for addressing sustainability through personal fashion management",
+          "Lead product development, business model design, partnerships, and marketing",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Ogmo",
+    location: "Remote",
+    roles: [
+      {
+        title: "Software Engineer",
+        type: "Part-time",
+        period: "Sep 2025 - Present",
+        bullets: [
+          "Joined as technical consultant after being recognized for coding skills during Apple Academy",
+          "Built real-time classroom assistant for Deaf and Hard-of-Hearing students with live captions and speaker identification",
+          "Designed audio processing architecture and iOS implementation with accessibility-first approach",
+          "Focused on reducing cognitive load to help students follow discussions in academic environments",
+        ],
+      },
+    ],
+  },
+  {
     company: "Apple Developer Academy @BINUS - Bali",
     location: "Bali, Indonesia",
     roles: [
@@ -60,9 +94,10 @@ export const jobs: Job[] = [
         type: "Apprenticeship",
         period: "Feb 2025 - Dec 2025",
         bullets: [
-          "Initiate & facilitate 7 practical coding sessions for learners to learn and share knowledge",
-          "Share coding & technology related knowledge to fellow learners",
-          "Participate in 6 challenge based learning projects as the team leader",
+          "Initiated 8 coding sessions after learners requested more technical guidance, teaching Swift and Apple technologies",
+          "Built 6 iOS apps using Swift and native Apple frameworks as team leader",
+          "Developed skills in product management, user research, and leadership through hands-on projects",
+          'Recognized as "the walking stackoverflow" at graduation, voted by fellow learners',
         ],
       },
     ],
