@@ -13,6 +13,57 @@ export interface Job {
 
 export const jobs: Job[] = [
   {
+    company: "Clamby",
+    location: "Remote",
+    roles: [
+      {
+        title: "CEO & Founder",
+        type: "Self-Employed",
+        period: "Sep 2025 - Present",
+        bullets: [
+          "Founded an AI-powered fashion app that generates outfit recommendations from existing wardrobe items",
+          "Built innovative selfie-to-wardrobe feature where AI extracts fashion items into studio-grade photos",
+          "Attracted interest from 2 business incubators for addressing sustainability through personal fashion management",
+          "Lead product development, business model design, partnerships, and marketing",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Ogmo",
+    location: "Remote",
+    roles: [
+      {
+        title: "Software Engineer",
+        type: "Part-time",
+        period: "Sep 2025 - Present",
+        bullets: [
+          "Joined as technical consultant after being recognized for coding skills during Apple Academy",
+          "Built real-time classroom assistant for Deaf and Hard-of-Hearing students with live captions and speaker identification",
+          "Designed audio processing architecture and iOS implementation with accessibility-first approach",
+          "Focused on reducing cognitive load to help students follow discussions in academic environments",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Freelance Software Engineer",
+    location: "Remote",
+    roles: [
+      {
+        title: "Software Engineer",
+        type: "Freelance",
+        period: "Feb 2023 - Present",
+        bullets: [
+          "Built tech solutions for 11 clients through direct networking rather than freelance platforms",
+          "Delivered diverse web projects including LMS, travel platform, blogging sites, landing pages, and CRUD-based apps",
+          "Developed full-stack solutions using React, Next.js, and custom API integrations",
+          "Provided technical consulting and AI-powered features for business clients",
+        ],
+      },
+    ],
+  },
+  {
     company: "Stockifi",
     location: "Oslo, Norway (Remote)",
     roles: [
@@ -47,40 +98,6 @@ export const jobs: Job[] = [
           "Produced 50+ cloud functions with Firebase & Google Cloud",
           "Created 8 OCR-related bots with Vertex AI, Google Gemini, & self-made model",
           "Made 25 web scraping bots using Playwright running in Cloud Run containers",
-        ],
-      },
-    ],
-  },
-  {
-    company: "Clamby",
-    location: "Remote",
-    roles: [
-      {
-        title: "CEO & Founder",
-        type: "Self-Employed",
-        period: "Sep 2025 - Present",
-        bullets: [
-          "Founded an AI-powered fashion app that generates outfit recommendations from existing wardrobe items",
-          "Built innovative selfie-to-wardrobe feature where AI extracts fashion items into studio-grade photos",
-          "Attracted interest from 2 business incubators for addressing sustainability through personal fashion management",
-          "Lead product development, business model design, partnerships, and marketing",
-        ],
-      },
-    ],
-  },
-  {
-    company: "Ogmo",
-    location: "Remote",
-    roles: [
-      {
-        title: "Software Engineer",
-        type: "Part-time",
-        period: "Sep 2025 - Present",
-        bullets: [
-          "Joined as technical consultant after being recognized for coding skills during Apple Academy",
-          "Built real-time classroom assistant for Deaf and Hard-of-Hearing students with live captions and speaker identification",
-          "Designed audio processing architecture and iOS implementation with accessibility-first approach",
-          "Focused on reducing cognitive load to help students follow discussions in academic environments",
         ],
       },
     ],
