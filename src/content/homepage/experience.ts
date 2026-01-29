@@ -34,7 +34,7 @@ export const jobs: Job[] = [
     location: "Remote",
     roles: [
       {
-        title: "Software Engineer",
+        title: "Software Consultant",
         type: "Part-time",
         period: "Sep 2025 - Present",
         bullets: [
