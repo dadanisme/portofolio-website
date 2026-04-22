@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Mail, LinkedinIcon, Github, Instagram, MapPin } from "lucide-react";
 import { contactInfo } from "@/lib/constants/contact";
 
 export const metadata: Metadata = {
@@ -9,95 +8,101 @@ export const metadata: Metadata = {
 
 const contactLinks = [
   {
-    icon: Mail,
     label: "Email",
     value: contactInfo.email,
     href: `mailto:${contactInfo.email}`,
-    description: "Send me a message",
+    note: "Correspondence",
   },
   {
-    icon: LinkedinIcon,
     label: "LinkedIn",
     value: "linkedin.com/in/dadanisme",
     href: contactInfo.linkedin,
-    description: "Connect with me",
+    note: "Professional",
   },
   {
-    icon: Github,
     label: "GitHub",
     value: "github.com/dadanisme",
     href: contactInfo.github,
-    description: "Check out my code",
+    note: "Practice",
   },
   {
-    icon: Instagram,
     label: "Instagram",
-    value: "@dadanisme",
+    value: "@dadanis.me",
     href: contactInfo.instagram,
-    description: "Follow my journey",
+    note: "Incidental",
   },
 ];
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-background py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl space-y-8">
-          <div className="space-y-2">
-            <h1 className="text-4xl font-bold tracking-tight">Contact</h1>
-            <p className="text-xl text-muted-foreground">Get in touch</p>
+    <main className="min-h-screen bg-background">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <section className="grid grid-cols-12 gap-x-6 gap-y-10 pt-16 pb-24 md:pt-24">
+          <div className="col-span-12 flex items-center justify-between">
+            <span className="eyebrow">Contact</span>
+            <span className="eyebrow text-muted-foreground">
+              {contactInfo.location}
+            </span>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {contactLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={
-                  link.href.startsWith("mailto")
-                    ? undefined
-                    : "noopener noreferrer"
-                }
-                className="group border border-border p-6 transition-colors hover:bg-muted/50"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 border border-border group-hover:border-foreground/20 transition-colors">
-                    <link.icon className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="font-semibold group-hover:text-muted-foreground transition-colors">
-                      {link.label}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {link.description}
-                    </p>
-                    <p className="text-sm text-muted-foreground font-mono">
-                      {link.value}
-                    </p>
-                  </div>
-                </div>
-              </a>
+          <hr className="col-span-12 rule animate-rule" />
+
+          <div className="col-span-12 md:col-span-10 md:col-start-2">
+            <h1 className="display-serif text-[clamp(3.5rem,13vw,10rem)]">
+              <span className="block animate-rise">Get in</span>
+              <span className="block pl-[6%] animate-rise delay-200">
+                <span className="text-accent">/</span>touch
+                <span className="text-accent">/</span>
+              </span>
+            </h1>
+          </div>
+
+          <div className="col-span-12 grid grid-cols-12 gap-x-6">
+            <p className="col-span-12 md:col-span-7 md:col-start-6 font-serif text-xl leading-[1.45] text-foreground md:text-[1.5rem] md:leading-[1.3] animate-rise delay-300">
+              Consulting, collaborations, mentorship, or a coffee when you pass
+              through Bandung — I read every note.
+            </p>
+          </div>
+
+          <hr className="col-span-12 rule animate-rule delay-400" />
+
+          <ol className="col-span-12 divide-y divide-border">
+            {contactLinks.map((link, i) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={
+                    link.href.startsWith("mailto")
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
+                  className="group grid grid-cols-12 items-baseline gap-x-6 gap-y-2 py-8 transition-colors hover:text-accent"
+                >
+                  <span className="folio col-span-2 md:col-span-1">
+                    {(i + 1).toString().padStart(2, "0")}
+                  </span>
+                  <span className="eyebrow col-span-10 md:col-span-2 text-muted-foreground group-hover:text-foreground">
+                    {link.note}
+                  </span>
+                  <h2 className="display-serif col-span-12 md:col-span-6 not-italic text-3xl md:text-5xl">
+                    <span className="link-slide italic">{link.label}</span>
+                  </h2>
+                  <span className="meta col-span-12 md:col-span-3 md:text-right text-muted-foreground group-hover:text-accent">
+                    {link.value} <span aria-hidden>→</span>
+                  </span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ol>
 
-          <div className="border border-border p-6">
-            <div className="flex items-start gap-4">
-              <div className="p-3 border border-border">
-                <MapPin className="h-6 w-6 text-muted-foreground" />
-              </div>
-              <div className="space-y-1">
-                <p className="font-semibold">Location</p>
-                <p className="text-sm text-muted-foreground">
-                  Based in {contactInfo.location}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Open to remote work worldwide
-                </p>
-              </div>
-            </div>
+          <div className="col-span-12 grid grid-cols-12 gap-x-6 border-t border-foreground pt-8 mt-8">
+            <span className="folio col-span-12 md:col-span-2">Location</span>
+            <p className="col-span-12 md:col-span-10 font-serif text-xl italic md:text-2xl">
+              Based in {contactInfo.location} · Open to remote work worldwide
+            </p>
           </div>
-        </div>
+        </section>
       </div>
     </main>
   );

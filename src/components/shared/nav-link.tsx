@@ -18,14 +18,21 @@ export function NavLink({ href, children, className }: NavLinkProps) {
     <Link
       href={href}
       className={cn(
-        "text-sm transition-colors",
+        "eyebrow relative inline-flex items-center gap-2 transition-colors",
         isActive
-          ? "text-foreground font-medium"
+          ? "text-foreground"
           : "text-muted-foreground hover:text-foreground",
         className
       )}
     >
-      {children}
+      <span
+        aria-hidden
+        className={cn(
+          "inline-block h-px w-4 bg-current transition-[width] duration-300",
+          isActive ? "w-4" : "w-0 group-hover:w-4"
+        )}
+      />
+      <span className="link-slide">{children}</span>
     </Link>
   );
 }

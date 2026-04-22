@@ -5,47 +5,54 @@ import { Project } from "@/types/content";
 
 interface ProjectCardProps {
   project: Project;
+  index?: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, index }: ProjectCardProps) {
   const { slug, frontmatter } = project;
+  const year = new Date(frontmatter.publishedAt).getFullYear();
 
   return (
-    <Link href={`/projects/${slug}`} className="block group">
-      <article className="border border-border transition-colors hover:bg-muted/50 overflow-hidden">
-        {frontmatter.image && (
-          <div className="relative w-full overflow-hidden">
-            <Image
-              src={frontmatter.image}
-              alt={frontmatter.title}
-              width={600}
-              height={315}
-              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-        )}
-        <div className="p-6 space-y-3">
-          <h2 className="text-xl font-semibold group-hover:text-muted-foreground transition-colors">
-            {frontmatter.title}
+    <Link href={`/projects/${slug}`} className="group block">
+      <article className="grid grid-cols-12 gap-x-6 gap-y-4 border-t border-border py-10 transition-colors first:border-t-0 hover:[&_h2]:text-accent">
+        <div className="col-span-12 flex items-baseline gap-4 md:col-span-2">
+          <span className="meta text-muted-foreground">
+            {typeof index === "number"
+              ? (index + 1).toString().padStart(2, "0")
+              : "—"}
+          </span>
+          <span className="meta text-muted-foreground">{year}</span>
+        </div>
+
+        <div className="col-span-12 space-y-4 md:col-span-7">
+          <h2 className="display-serif not-italic text-3xl transition-colors md:text-5xl">
+            <span className="link-slide">{frontmatter.title}</span>
           </h2>
-          <p className="text-muted-foreground line-clamp-2">
+          <p className="font-serif text-lg italic leading-snug text-foreground/85 md:text-xl">
             {frontmatter.description}
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-baseline gap-2 pt-1">
             {frontmatter.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">
+              <Badge key={tag} variant="outline">
                 {tag}
               </Badge>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">
-            {new Date(frontmatter.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
         </div>
+
+        {frontmatter.image && (
+          <div className="col-span-12 md:col-span-3">
+            <div className="relative aspect-[4/3] w-full overflow-hidden border border-border">
+              <Image
+                src={frontmatter.image}
+                alt={frontmatter.title}
+                fill
+                sizes="(min-width: 768px) 25vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            </div>
+          </div>
+        )}
       </article>
     </Link>
   );

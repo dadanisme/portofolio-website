@@ -1,28 +1,71 @@
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { hero } from "@/content/homepage";
 
 export function Hero() {
+  const [first, ...rest] = hero.name.split(" ");
+  const last = rest.join(" ");
+
   return (
-    <section className="space-y-6">
-      <div className="space-y-2">
-        <h1 className="text-4xl font-bold tracking-tight">{hero.name}</h1>
-        <p className="text-xl text-muted-foreground">{hero.title}</p>
+    <section className="relative grid grid-cols-12 gap-x-6 gap-y-10 pt-16 pb-24 md:pt-24 md:pb-32">
+      {/* Folio rail */}
+      <div className="col-span-12 flex items-center justify-between md:col-span-12">
+        <span className="eyebrow animate-fade text-foreground">
+          Portfolio · 2026
+        </span>
+        <span className="eyebrow animate-fade text-muted-foreground">
+          Bandung · IDN
+        </span>
       </div>
 
-      <Separator />
+      <hr className="col-span-12 rule animate-rule delay-100" />
 
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold">Overview</h2>
-        <p className="text-muted-foreground leading-relaxed">{hero.overview}</p>
+      {/* Name — oversized italic serif */}
+      <div className="col-span-12 md:col-span-10 md:col-start-2">
+        <h1 className="display-serif text-[clamp(4rem,16vw,13rem)] text-foreground">
+          <span className="block animate-rise">{first}</span>
+          <span className="block pl-[8%] animate-rise delay-200">
+            <span className="text-accent">/</span>
+            {last}
+            <span className="text-accent">/</span>
+          </span>
+        </h1>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {hero.primarySkills.map((skill) => (
-          <Badge key={skill} variant="secondary">
-            {skill}
-          </Badge>
-        ))}
+      {/* Subtitle + overview row */}
+      <div className="col-span-12 grid grid-cols-12 gap-x-6 gap-y-8">
+        <div className="col-span-12 md:col-span-4 md:col-start-1">
+          <p className="eyebrow animate-rise delay-300 text-foreground">
+            {hero.title}
+          </p>
+          <p className="meta animate-rise delay-300 mt-2 text-muted-foreground">
+            Practicing since 2017
+          </p>
+        </div>
+
+        <div className="col-span-12 md:col-span-7 md:col-start-6">
+          <p className="animate-rise delay-400 font-serif text-xl leading-[1.5] text-foreground md:text-[1.6rem] md:leading-[1.35]">
+            {hero.overview}
+          </p>
+        </div>
+      </div>
+
+      <hr className="col-span-12 rule animate-rule delay-500" />
+
+      {/* Primary stack as editorial tag row */}
+      <div className="col-span-12 grid grid-cols-12 items-baseline gap-x-6">
+        <span className="eyebrow col-span-12 md:col-span-2 text-muted-foreground animate-fade delay-500">
+          Primary stack
+        </span>
+        <ul className="col-span-12 md:col-span-10 flex flex-wrap items-baseline gap-x-5 gap-y-2 animate-rise delay-600">
+          {hero.primarySkills.map((skill, i) => (
+            <li
+              key={skill}
+              className="meta flex items-baseline gap-5 text-foreground"
+            >
+              {i > 0 && <span className="text-accent">·</span>}
+              <span>{skill}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
