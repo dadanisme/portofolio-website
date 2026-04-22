@@ -7,7 +7,8 @@ Personal portfolio website built with Next.js 16, featuring projects showcase an
 - **Framework**: Next.js 16 with React 19
 - **Styling**: Tailwind CSS 4 with shadcn/ui components
 - **Content**: MDX with next-mdx-remote for project pages
-- **Fonts**: Geist Mono
+- **Fonts**: Instrument Serif (display, italic), Geist Sans (body), Geist Mono (metadata)
+- **Aesthetic**: Editorial archive — warm paper palette, oxblood accent, asymmetric 12-col grid, grain overlay
 
 ## Getting Started
 

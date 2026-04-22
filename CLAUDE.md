@@ -22,8 +22,8 @@ This is a Next.js 16 portfolio website using the App Router with MDX support for
 - **Framework**: Next.js 16 with React 19 and React Compiler
 - **Styling**: Tailwind CSS 4 with shadcn/ui components
 - **Content**: MDX with next-mdx-remote for dynamic project pages
-- **Animation**: Motion library (framer-motion successor)
-- **Fonts**: Geist Mono (monospace throughout)
+- **Animation**: Motion library (framer-motion successor); CSS keyframes for page-load reveals
+- **Fonts**: Instrument Serif (display, italic), Geist Sans (body), Geist Mono (metadata). Loaded via `next/font/google` in `app/layout.tsx` as CSS vars `--font-instrument-serif`, `--font-geist-sans`, `--font-geist-mono`.
 
 ### Project Structure
 
@@ -54,10 +54,10 @@ src/
 
 ### Routes
 
-- `/` - Home page with hero, experience, education, skills
-- `/projects` - Projects list with cards
-- `/projects/[slug]` - Project detail with MDX content and table of contents
-- `/contact` - Contact page with card-based layout
+- `/` - Home page with hero, experience, education, skills (editorial 12-col layout)
+- `/projects` - Currently disabled (returns notFound); re-enable in `navigation.ts` when content is ready
+- `/projects/[slug]` - Currently disabled (returns notFound)
+- `/contact` - Editorial contact index with numbered rows
 
 ### Key Patterns
 
@@ -69,9 +69,22 @@ src/
 
 **Styling**:
 
-- Use semantic color tokens: `bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`
-- OKLCH color system defined in `globals.css` with light/dark mode support
+- Use semantic color tokens: `bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`, `text-accent` (oxblood)
+- OKLCH color system defined in `globals.css` with light/dark mode support (warm paper in light, warm charcoal in dark)
 - No shadows, no border-radius (--radius: 0rem)
+
+**Editorial aesthetic** (defined in `globals.css` `@layer components`):
+
+- `.display-serif` — oversized italic Instrument Serif for hero & section titles
+- `.eyebrow` — mono uppercase 11px with wide tracking, for labels and section markers
+- `.meta` — mono 12px for dates, locations, metadata
+- `.folio` — mono uppercase small caps for page-folio style labels (e.g. "12 entries")
+- `.link-slide` — underline-slide hover effect
+- `.rule` / `.rule-thick` — horizontal keylines
+- Oxblood accent (`--accent-ink`) is reserved for emphasis: name slashes, bullet dashes, hover states, selection
+- Layouts use 12-col asymmetric grids (`grid grid-cols-12 gap-x-6`) with generous vertical rhythm; no cards/boxes — rely on keyline dividers
+- Grain overlay is applied globally via `body::before` SVG noise (do not add per-component)
+- Avoid Roman numerals in UI copy — use plain years
 
 **File Conventions**:
 
@@ -88,8 +101,9 @@ src/
 
 **Navigation**:
 
-- Tab bar with Home, Projects, Contact
-- Contact links (email, LinkedIn) hidden on mobile
+- Sticky top masthead with portfolio marker, center-aligned nav, right-aligned Email/LinkedIn
+- Nav links use `.eyebrow` mono caps; active state shows a 16px rule before the label
+- Contact links (email, LinkedIn) hidden below `md` breakpoint
 - Active state detection using `usePathname()`
 
 ### Path Alias
