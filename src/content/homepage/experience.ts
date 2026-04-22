@@ -19,7 +19,7 @@ export const jobs: Job[] = [
       {
         title: "CEO & Founder",
         type: "Self-Employed",
-        period: "Sep 2025 - Present",
+        period: "Sep 2025 - Apr 2026",
         bullets: [
           "Founded an AI-powered fashion app that generates outfit recommendations from existing wardrobe items",
           "Built innovative selfie-to-wardrobe feature where AI extracts fashion items into studio-grade photos",
