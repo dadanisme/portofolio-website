@@ -43,7 +43,7 @@
   /* Paper & ink */
   --paper: oklch(0.961 0.014 85);
   --ink: oklch(0.18 0.018 45);
-  --accent-ink: oklch(0.42 0.13 28); /* oxblood */
+  --accent-ink: oklch(0.44 0.19 24); /* Mazda Soul Red Crystal */
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -71,7 +71,7 @@
   :root {
     --paper: oklch(0.16 0.012 50);
     --ink: oklch(0.94 0.01 85);
-    --accent-ink: oklch(0.68 0.14 30); /* terracotta, lifted */
+    --accent-ink: oklch(0.62 0.2 25); /* Soul Red, lifted for dark */
 
     --background: var(--paper);
     --foreground: var(--ink);
