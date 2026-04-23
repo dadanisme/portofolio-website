@@ -13,8 +13,8 @@ Personal portfolio website built with Next.js 16, featuring projects showcase an
 ## Getting Started
 
 ```bash
-npm install
-npm run dev
+bun install
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
@@ -64,10 +64,10 @@ Project content here...
 ## Scripts
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Production build
-npm run lint         # Run ESLint
-npm run format       # Format with Prettier
+bun dev          # Start development server
+bun run build    # Production build
+bun lint         # Run ESLint
+bun format       # Format with Prettier
 ```
 
 ## License

@@ -5,12 +5,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Production build
-npm run lint         # Run ESLint
-npm run lint:fix     # Auto-fix ESLint issues
-npm run format       # Format with Prettier
-npm run format:check # Check formatting
+bun dev          # Start development server
+bun run build    # Production build
+bun lint         # Run ESLint
+bun lint:fix     # Auto-fix ESLint issues
+bun format       # Format with Prettier
+bun format:check # Check formatting
 ```
 
 ## Architecture
