@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, LinkedinIcon } from "lucide-react";
 import { NavLink } from "./nav-link";
+import { LogoMark } from "./logo-mark";
 import { navLinks } from "@/lib/constants/navigation";
 import { contactInfo } from "@/lib/constants/contact";
 
@@ -14,7 +15,7 @@ export function Navigation() {
           href="/"
           className="eyebrow hidden items-center gap-3 text-foreground md:inline-flex"
         >
-          <span className="inline-block h-px w-6 bg-foreground" />
+          <LogoMark className="h-5 w-5" />
           <span>Portfolio · 2026</span>
         </Link>
 
