@@ -6,7 +6,7 @@ import { getProjectBySlug, getProjectSlugs } from "@/lib/content";
 import { extractTOC } from "@/lib/toc";
 import { TableOfContents } from "@/components/shared/table-of-contents";
 import { CoverImage } from "@/components/shared/cover-image";
-import { mdxComponents } from "@/lib/mdx-config";
+import { mdxComponents, mdxOptions } from "@/lib/mdx-config";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -124,7 +124,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </aside>
 
           <article className="col-span-12 min-w-0 lg:col-span-8 lg:col-start-5 prose-custom">
-            <MDXRemote source={project.content} components={mdxComponents} />
+            <MDXRemote
+              source={project.content}
+              components={mdxComponents}
+              options={{ mdxOptions }}
+            />
           </article>
         </section>
       </div>

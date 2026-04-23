@@ -1,0 +1,41 @@
+---
+title: Ogmo
+description: Ogmo is a real-time caption app that makes every discussion accessible to everyone.
+publishedAt: 2026-04-19
+tags:
+  - Swift
+  - iOS
+  - WhisperKit
+  - Speaker Diarization
+  - ASR
+  - GCP
+  - Accessibility
+  - Nemotron
+  - Speech Processing
+  - LLM
+  - AI
+featured: true
+image: /projects/ogmo-cover.jpg
+---
+
+I joined [Ogmo](https://ogmo.app) as a software consultant to lead the speech pipeline, and most of the interesting work lives in one question: how do you caption a real classroom in real time without the captions being either too slow to follow or too wrong to trust? In a quiet room with one speaker, every modern speech-to-text model looks great. In an actual classroom, with overlapping voices, a teacher pacing away from the mic, side conversations, and background noise from the air conditioning, the gap between models gets huge. So does the gap between "works in the demo" and "works for a Deaf student trying to follow a lecture."
+
+## Picking the right model
+
+The first chapter of the story was picking the right speech-to-text model. We started on Soniox, but after its accuracy dropped I ran a full benchmark across five engines on iPhone: WhisperKit, Apple's Speech framework, Soniox, Fluid Audio, and Nemotron. Fourteen real-time configurations in total. Each one sits on a different point of the latency, accuracy, and privacy triangle, and there's no free lunch. Faster on-device models are less accurate. The best cloud models are fast and accurate, but they send user audio off the device and depend on the network. I wrote up the results as a formal benchmark report so the decision was grounded in numbers, not vibes.
+
+### The shortlist
+
+| Engine       | Model                  | Latency | Real-Time WER | On-Device |
+| ------------ | ---------------------- | ------- | ------------- | --------- |
+| Nemotron     | 1120ms                 | 0.77s   | 8.7%          | Yes       |
+| Fluid Audio  | 320ms                  | 0.34s   | 18.7%         | Yes       |
+| Soniox       | stt-rt-preview         | 0.19s   | 12.5%         | No (cloud) |
+| WhisperKit   | distil-large-v3-turbo  | 0.68s   | 14.5%         | Yes       |
+| Apple Speech | English (UK)           | 1.38s   | 13.5%         | Yes       |
+
+The pattern is visible at a glance. Soniox is unbeatable on latency and accurate enough, but it needs the network and sends audio off the device, which is a hard tradeoff for a tool people use in classrooms, meetings, and sermons. Nemotron 1120ms gets surprisingly close to Soniox on accuracy while running fully on-device. Fluid Audio 320ms is the fastest on-device option and pairs with the best offline accuracy of the whole test (3.5% WER), so it's a great fit for post-processing saved recordings even if its real-time output needs cleanup. Apple Speech stays in the mix as a zero-dependency fallback that's always available.
+
+## Shipping now
+
+Ogmo is shipping on the App Store now, and I'm still actively tuning the pipeline against real-world audio. If you want to try it in your own environment, whether that's a classroom, meeting, or lecture, I'd really appreciate the feedback. [Download Ogmo on the App Store →](https://apps.apple.com/id/app/ogmo-live-transcribe/id6755096384?l=id)

@@ -12,9 +12,10 @@ export function CoverImage({ src, alt, priority = false }: CoverImageProps) {
       <Image
         src={src}
         alt={alt}
-        width={1200}
-        height={630}
-        className="w-full h-auto object-cover"
+        width={1920}
+        height={1080}
+        sizes="(min-width: 1400px) 1320px, 100vw"
+        className="w-full h-auto"
         priority={priority}
       />
     </div>
