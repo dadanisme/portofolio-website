@@ -6,7 +6,7 @@ import { Skills } from "@/components/sections/skills";
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div className="mx-auto max-w-350 px-6 md:px-10">
         <Hero />
         <Experience />
         <Education />

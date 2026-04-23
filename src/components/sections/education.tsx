@@ -2,7 +2,7 @@ import { education, type Education } from "@/content/homepage";
 
 export function EducationSection() {
   return (
-    <section className="grid grid-cols-12 gap-x-6 gap-y-8 border-t border-foreground pt-16 pb-24">
+    <section className="grid grid-cols-12 gap-x-6 gap-y-8 border-t border-foreground pt-16 pb-12">
       <header className="col-span-12 flex items-baseline justify-between">
         <h2 className="display-serif text-4xl md:text-6xl">Education</h2>
         <span className="folio hidden md:inline">

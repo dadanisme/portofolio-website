@@ -5,7 +5,7 @@ export function Hero() {
   const last = rest.join(" ");
 
   return (
-    <section className="relative grid grid-cols-12 gap-x-6 gap-y-10 pt-16 pb-24 md:pt-24 md:pb-32">
+    <section className="relative grid grid-cols-12 gap-x-6 gap-y-10 pt-16 pb-10 md:pt-24">
       {/* Folio rail */}
       <div className="col-span-12 flex items-center justify-between md:col-span-12">
         <span className="eyebrow animate-fade text-foreground">
@@ -42,7 +42,7 @@ export function Hero() {
         </div>
 
         <div className="col-span-12 md:col-span-7 md:col-start-6">
-          <p className="animate-rise delay-400 font-serif text-xl leading-[1.5] text-foreground md:text-[1.6rem] md:leading-[1.35]">
+          <p className="animate-rise delay-400 font-serif text-xl leading-normal text-foreground md:text-[1.6rem] md:leading-[1.35]">
             {hero.overview}
           </p>
         </div>
@@ -61,7 +61,7 @@ export function Hero() {
               key={skill}
               className="meta flex items-baseline gap-5 text-foreground"
             >
-              {i > 0 && <span className="text-accent">·</span>}
+              {i > 0 && <span className="text-accent">/</span>}
               <span>{skill}</span>
             </li>
           ))}
