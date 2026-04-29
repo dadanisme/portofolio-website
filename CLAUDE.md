@@ -55,8 +55,8 @@ src/
 ### Routes
 
 - `/` - Home page with hero, experience, education, skills (editorial 12-col layout)
-- `/projects` - Currently disabled (returns notFound); re-enable in `navigation.ts` when content is ready
-- `/projects/[slug]` - Currently disabled (returns notFound)
+- `/projects` - Projects index, lists entries from `src/content/projects/*.mdx`
+- `/projects/[slug]` - Project detail with MDX + TOC; calls `notFound()` for unknown slugs
 - `/contact` - Editorial contact index with numbered rows
 
 ### Key Patterns
