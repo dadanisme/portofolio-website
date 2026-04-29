@@ -1,0 +1,44 @@
+---
+title: Nouveau
+description: A personal finance app that turns email receipts and share-sheet hand-offs into transactions automatically, with no manual entry.
+publishedAt: 2026-04-29
+tags:
+  - React Native
+  - Supabase
+  - Swift
+  - Kotlin
+  - Cloud Functions
+  - Cloudflare Workers
+  - iOS
+  - Android
+  - Personal Finance
+featured: true
+image: /projects/nouveau-cover.png
+links:
+  - label: Website
+    url: https://nouveau.my.id
+  - label: GitHub
+    url: https://github.com/dadanisme/nouveau
+---
+
+Nouveau is a personal finance app I'm building around one idea: the data is already there, the user shouldn't have to type it again. Receipts arrive in your inbox. Payments confirm in GoPay. Banks send screenshots-worth of detail every time you tap pay. The friction in every other expense tracker is the part where you stop, open the app, and re-enter what just happened. Nouveau removes that step.
+
+## Capturing transactions automatically
+
+The standout feature is email scraping. Invoices, receipts, and payment confirmations land in your inbox all day, and Nouveau parses them into transactions without you opening the app. A Cloudflare Email Worker handles the inbound mail, and a Cloud Function does the parsing and writes to Supabase.
+
+The second capture surface is the system share sheet. From GoPay, Alpha Gift, a banking app, or even a screenshot, you tap share, pick Nouveau, and the transaction is saved. It works with anything that supports share intents — including images, which means a screenshot from a bank app can become a logged transaction in one gesture.
+
+### Why two surfaces
+
+Email covers the things that arrive on their own — subscriptions, marketplace orders, utility bills. Share covers the things that happen in another app and would otherwise need to be retyped. Between them, most day-to-day spending lands in Nouveau without manual input.
+
+## Where it's going
+
+The longer-term direction is family finance, designed around transparency between partners. Two people, one shared account, both able to record and review spending. The goal is the kind of household visibility that's hard to maintain with a spreadsheet and easy to lose with separate apps.
+
+## Stack and status
+
+Nouveau is built on React Native with Supabase as the backend, plus native modules in Swift and Kotlin where the share extension and platform integration need to be deeper than what JS can reach. The server side is split between Cloud Functions for parsing and writes, and a Cloudflare Email Worker for inbound mail.
+
+It's not publicly released yet. iOS is on TestFlight, Android and web are in development, and I'm using it daily as the first user while the design settles.

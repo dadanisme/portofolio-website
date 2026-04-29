@@ -6,6 +6,7 @@ import { getProjectBySlug, getProjectSlugs } from "@/lib/content";
 import { extractTOC } from "@/lib/toc";
 import { TableOfContents } from "@/components/shared/table-of-contents";
 import { CoverImage } from "@/components/shared/cover-image";
+import { QuickLinks } from "@/components/shared/quick-links";
 import { mdxComponents, mdxOptions } from "@/lib/mdx-config";
 
 interface ProjectPageProps {
@@ -118,8 +119,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
 
           <aside className="col-span-12 lg:col-span-3">
-            <div className="sticky top-24">
+            <div className="sticky top-24 space-y-8">
               <TableOfContents items={tocItems} />
+              {project.frontmatter.links &&
+                project.frontmatter.links.length > 0 && (
+                  <QuickLinks links={project.frontmatter.links} />
+                )}
             </div>
           </aside>
 

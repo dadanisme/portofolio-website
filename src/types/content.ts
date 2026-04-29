@@ -1,3 +1,8 @@
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
 export interface ProjectFrontmatter {
   title: string;
   description: string;
@@ -6,6 +11,7 @@ export interface ProjectFrontmatter {
   tags: string[];
   featured?: boolean;
   image?: string;
+  links?: ProjectLink[];
 }
 
 export interface Project {

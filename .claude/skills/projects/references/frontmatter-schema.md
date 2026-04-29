@@ -16,6 +16,7 @@
 | `updatedAt` | string  | -       | Last update date in `YYYY-MM-DD` format |
 | `featured`  | boolean | false   | Whether to highlight this project       |
 | `image`     | string  | -       | Path to a cover image                   |
+| `links`     | array   | -       | External links (App Store, GitHub, demo) — each with `label` and `url` |
 
 ## Example Frontmatter
 
@@ -31,6 +32,13 @@ tags:
   - Next.js
 featured: true
 image: /images/projects/project-name.png
+links:
+  - label: App Store
+    url: https://apps.apple.com/app/example
+  - label: GitHub
+    url: https://github.com/user/repo
+  - label: Live demo
+    url: https://example.com
 ---
 ```
 
