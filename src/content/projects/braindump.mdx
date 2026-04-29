@@ -1,0 +1,51 @@
+---
+title: Brain Dump
+description: A web app for catching ideas the moment they happen — dictate with VoiceInk, and the thought lands as a structured note split into summary, action items, and key points.
+publishedAt: 2026-04-29
+tags:
+  - Next.js
+  - TypeScript
+  - VoiceInk
+  - Dictation
+  - AI
+  - LLM
+  - Productivity
+  - Note-taking
+  - Idea Capture
+image: /projects/braindump-cover.png
+links:
+  - label: Website
+    url: https://braindump.muhammadramdan.com
+  - label: GitHub
+    url: https://github.com/dadanisme/braindump
+  - label: VoiceInk fork
+    url: https://github.com/dadanisme/VoiceInk
+---
+
+There's one habit I want to share with anyone trying to adopt a new one: catch your ideas. We talk about business ideas, freelance gigs, and side bets at every hangout, and the moment the conversation ends, the idea is gone — never executed, never revisited. Brain Dump is the app I built to stop that from happening to me.
+
+## The habit, then the tool
+
+I made it a rule to capture every idea that surfaces, whether or not I'll ever act on it. I know I'll forget what I talked about today, so writing it down isn't optional — it's the whole point. Most ideas won't go anywhere. A few will. The ones that do are usually the ones I almost forgot.
+
+Brain Dump is a web app dedicated to that habit. No projects, no tags to maintain, no folders. The friction is the enemy; it just needs to catch the thought.
+
+## Dictation as the entry point
+
+Brain Dump is wired to VoiceInk, a dictation app I forked to integrate the flow. The hotkey is Right Option — press it, and a new idea is created in Brain Dump automatically. I talk through the thought, release, and the transcript flows in.
+
+### Three buckets, one capture
+
+Once dictation finishes, the entry is split into three sections by an LLM pass:
+
+- **Idea** — a clean summary of what I just dumped.
+- **Action items** — concrete next steps if any are implied.
+- **Key points** — the quotable, manifesto-shaped fragments worth keeping.
+
+The third bucket is the one I care about most. Today it looks like a small pile of notes. After five years of doing this, I expect it to be enough material for a book — or a talk, or whatever else compounds out of consistently catching what would otherwise be lost.
+
+## Why a separate app
+
+I have notes apps. The reason this lives on its own is that idea capture has a different shape than note-taking. It needs to be one gesture, no decisions, and the transcript needs to land already organized so I'll actually come back to it.
+
+That's the whole pitch — catch your ideas before they slip. The remembering part is what the tool is for.
